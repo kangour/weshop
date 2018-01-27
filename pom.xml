@@ -14,19 +14,23 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+        <!--项目的版本 -->
 		<version>2.0.0.M7</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
+	<!-- 变量定义 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-
+	<!--包含多个jar包的依赖 -->
 	<dependencies>
+		<!--包含某个jar包的依赖 -->
 		<dependency>
+			<!-- 组织的唯一标识 -->
 			<groupId>org.springframework.boot</groupId>
+			<!-- 项目的唯一标识 -->
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
@@ -36,7 +40,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<!-- 编译插件 -->
 	<build>
 		<plugins>
 			<plugin>
