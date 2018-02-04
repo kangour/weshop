@@ -14,7 +14,7 @@ public class UserControl {
         ArrayList<UserEntity> userList = new ArrayList<UserEntity>();
         for (int i = 0; i < 5; i++) {
             UserEntity user = new UserEntity();
-            user.setName("user"+i);
+            user.setName("Kangour "+i);
             user.setAge(i);
             user.setSex("男");
             userList.add(user);
