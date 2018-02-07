@@ -11,12 +11,12 @@ import com.telang.weshop.entity.UserEntity;
 public class UserControl {
     @Autowired
     private UserDao personMapper;
-    @RequestMapping("/save")
+    @RequestMapping("/insertUser")
     public Integer save() {
-        UserEntity personDO = new UserEntity();
-        personDO.setUsername("Kangour");
-        personDO.setPassword("123456");
-        personMapper.insert(personDO);
-        return personDO.getId();
+        UserEntity person = new UserEntity();
+        person.setUsername("Kangour");
+        person.setPassword("123456");
+        personMapper.insert(person);
+        return person.getId();
     } 
 }

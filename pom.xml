@@ -24,11 +24,11 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	<!--包含多个jar包的依赖 -->
+	<!-- dependencies 中有所有依赖包的配置位置 -->
+	<!--dependency 是包含某类包的依赖，通过其中的包名导包 -->
 	<dependencies>
-		<!--包含某个jar包的依赖 -->
+		<!-- 导入web依赖包，tomcat就在其中 -->
 		<dependency>
-			<!-- 导入web依赖包，tomcat就在其中 -->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -37,14 +37,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
-		<!-- 添加 MyBatis -->
+
+		<!-- 添加 MyBatis包 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.2.0</version>
 		</dependency>
-
-		<!-- 添加 MySQL -->
+		<!-- 添加 MySQL驱动包 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
