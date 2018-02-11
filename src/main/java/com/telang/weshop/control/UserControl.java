@@ -10,15 +10,14 @@ import com.telang.weshop.entity.UserInfo;
 
 @RestController
 public class UserControl {
-  
-
     @Autowired
     private UserInfoMapper userInfoMapper;
-
     @RequestMapping("/")
     public UserInfo haha() {
         UserInfo user = new UserInfo();
-        user.setUsername("aaaa");
+        user.setUsername("Kangour");
+        user.setPassword("123456");
+        
         userInfoMapper.insert(user);
         return user;
     }

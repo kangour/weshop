@@ -57,7 +57,12 @@
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 		</dependency>
-
+		<!-- 阿里巴巴Druid连接池 -->
+       <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.25</version>
+        </dependency>
 		<!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
