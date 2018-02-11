@@ -2,7 +2,7 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
-public class UserInfo {
+public class AdminInfo {
     private Integer id;
 
     private String username;

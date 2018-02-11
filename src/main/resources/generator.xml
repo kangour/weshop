@@ -34,8 +34,8 @@
 		</javaModelGenerator>
 
 		<!-- 生成映射文件的位置(com.telang.weshop.mapper) -->
-		<sqlMapGenerator targetPackage="com.telang.weshop.mapper"
-			targetProject="src\main\java">
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src\main\resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
@@ -52,12 +52,12 @@
 			selectByExampleQueryId="false">
 		</table>
 
-		<!-- 处理的第二张表。 -->
-<!-- 		<table tableName="admin_info" domainObjectName="AdminInfo" -->
-<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
-<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
-<!-- 			selectByExampleQueryId="false"> -->
-<!-- 		</table> -->
+	<!-- 处理的第二张表。 -->
+		<table tableName="admin_info" domainObjectName="AdminInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
 
 	</context>
 </generatorConfiguration>
