@@ -1,25 +1,28 @@
 package com.telang.weshop.control;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.telang.weshop.dao.UserInfoMapper;
-import com.telang.weshop.entity.UserInfo;
 
 
 @RestController
 public class UserControl {
-    @Autowired
-    private UserInfoMapper userInfoMapper;
+    
     @RequestMapping("/")
-    public UserInfo haha() {
-        UserInfo user = new UserInfo();
-        user.setUsername("Kangour");
-        user.setPassword("123456");
+    public ModelAndView test(ModelAndView mv) {
+        mv.setViewName("index.html");
+        mv.addObject("status",0);
+        return mv;
+    }    
+    @RequestMapping("/login333")
+    public ModelAndView test2(ModelAndView mv) {
+        mv.setViewName("login.html");
+        mv.addObject("name","Kangour");
+        mv.addObject("message","你的到来小站感到很荣幸！");
         
-        userInfoMapper.insert(user);
-        return user;
+        return mv;
     }
-
 }
