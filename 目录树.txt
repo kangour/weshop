@@ -1,0 +1,730 @@
+文件夹 PATH 列表
+卷序列号为 A42E-4D13
+D:.
+|   .classpath
+|   .gitignore
+|   .project
+|   mvnw
+|   mvnw.cmd
+|   pom.xml
+|   目录树.txt
+|   获取相对路径 - 文件树.bat
+|   
++---.mvn
+|   \---wrapper
+|           maven-wrapper.jar
+|           maven-wrapper.properties
+|           
++---.settings
+|       org.eclipse.core.resources.prefs
+|       org.eclipse.jdt.core.prefs
+|       org.eclipse.m2e.core.prefs
+|       org.eclipse.wst.common.project.facet.core.xml
+|       
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---com
+|   |   |       \---telang
+|   |   |           \---weshop
+|   |   |               |   WeshopApplication.java
+|   |   |               |   
+|   |   |               +---control
+|   |   |               |       HomeControl.java
+|   |   |               |       
+|   |   |               +---service
+|   |   |               \---util
+|   |   |                       Generator.java
+|   |   |                       PageUtil.java
+|   |   |                       
+|   |   \---resources
+|   |       |   application.properties
+|   |       |   banner.txt
+|   |       |   generator.xml
+|   |       |   LanguagePacks.properties
+|   |       |   LanguagePacks_en_US.properties
+|   |       |   LanguagePacks_zh_CN.properties
+|   |       |   
+|   |       \---templates
+|   |           |   index.html
+|   |           |   
+|   |           +---AmazeUI-2.4.2
+|   |           |   \---assets
+|   |           |       +---css
+|   |           |       |       admin.css
+|   |           |       |       amazeui.css
+|   |           |       |       amazeui.flat.css
+|   |           |       |       amazeui.flat.min.css
+|   |           |       |       amazeui.min.css
+|   |           |       |       app.css
+|   |           |       |       
+|   |           |       +---fonts
+|   |           |       |       fontawesome-webfont.eot
+|   |           |       |       fontawesome-webfont.svg
+|   |           |       |       fontawesome-webfont.ttf
+|   |           |       |       fontawesome-webfont.woff
+|   |           |       |       fontawesome-webfont.woff2
+|   |           |       |       FontAwesome.otf
+|   |           |       |       
+|   |           |       +---i
+|   |           |       |   |   app-icon72x72@2x.png
+|   |           |       |   |   favicon.png
+|   |           |       |   |   startup-640x1096.png
+|   |           |       |   |   
+|   |           |       |   \---examples
+|   |           |       |           admin-chrome.png
+|   |           |       |           admin-firefox.png
+|   |           |       |           admin-ie.png
+|   |           |       |           admin-opera.png
+|   |           |       |           admin-safari.png
+|   |           |       |           adminPage.png
+|   |           |       |           blogPage.png
+|   |           |       |           landing.png
+|   |           |       |           landingPage.png
+|   |           |       |           loginPage.png
+|   |           |       |           sidebarPage.png
+|   |           |       |           
+|   |           |       \---js
+|   |           |               amazeui.ie8polyfill.js
+|   |           |               amazeui.ie8polyfill.min.js
+|   |           |               amazeui.js
+|   |           |               amazeui.min.js
+|   |           |               amazeui.widgets.helper.js
+|   |           |               amazeui.widgets.helper.min.js
+|   |           |               app.js
+|   |           |               handlebars.min.js
+|   |           |               jquery.min.js
+|   |           |               
+|   |           +---basic
+|   |           |   +---css
+|   |           |   |       demo.css
+|   |           |   |       
+|   |           |   +---images
+|   |           |   |       chongzhi.png
+|   |           |   |       ibar_sprites.png
+|   |           |   |       loading.gif
+|   |           |   |       logo.png
+|   |           |   |       logobar.png
+|   |           |   |       logobig.png
+|   |           |   |       no-img_mid_.jpg
+|   |           |   |       wdsc.png
+|   |           |   |       weixin_code_145.png
+|   |           |   |       
+|   |           |   \---js
+|   |           |           jquery-1.7.min.js
+|   |           |           jquery-1.9.min.js
+|   |           |           quick_links.js
+|   |           |           
+|   |           +---css
+|   |           |       addstyle.css
+|   |           |       appstyle.css
+|   |           |       bilstyle.css
+|   |           |       blogstyle.css
+|   |           |       blstyle.css
+|   |           |       bostyle.css
+|   |           |       cartstyle.css
+|   |           |       cmstyle.css
+|   |           |       colstyle.css
+|   |           |       cpstyle.css
+|   |           |       dlstyle.css
+|   |           |       footstyle.css
+|   |           |       hmstyle.css
+|   |           |       infstyle.css
+|   |           |       jsstyle.css
+|   |           |       lostyle.css
+|   |           |       newstyle.css
+|   |           |       optstyle.css
+|   |           |       orstyle.css
+|   |           |       personal.css
+|   |           |       refstyle.css
+|   |           |       seastyle.css
+|   |           |       skin.css
+|   |           |       sortstyle.css
+|   |           |       stepstyle.css
+|   |           |       style.css
+|   |           |       sustyle.css
+|   |           |       systyle.css
+|   |           |       
+|   |           +---home
+|   |           |       index.html
+|   |           |       
+|   |           +---images
+|   |           |       -0-saturn_solar.jpg_220x220.jpg
+|   |           |       0-item_pic.jpg_220x220.jpg
+|   |           |       01.jpg
+|   |           |       01_mid.jpg
+|   |           |       01_small.jpg
+|   |           |       02.jpg
+|   |           |       02_mid.jpg
+|   |           |       02_small.jpg
+|   |           |       03.jpg
+|   |           |       03_mid.jpg
+|   |           |       03_small.jpg
+|   |           |       1-item_pic.jpg_220x220.jpg
+|   |           |       1.jpg
+|   |           |       10.jpg
+|   |           |       11.jpg
+|   |           |       1_160x160.jpg
+|   |           |       2.jpg
+|   |           |       2016.png
+|   |           |       3.jpg
+|   |           |       3CoOkxrFOP.png
+|   |           |       4.jpg
+|   |           |       5.jpg
+|   |           |       556.png
+|   |           |       557.png
+|   |           |       559.png
+|   |           |       566.png
+|   |           |       566fda5cN4b8a1675.gif
+|   |           |       6.jpg
+|   |           |       62988.jpg_80x80.jpg
+|   |           |       65.jpg_120x120xz.jpg
+|   |           |       7.jpg
+|   |           |       72h.png
+|   |           |       8.jpg
+|   |           |       88.jpg_120x120xz.jpg
+|   |           |       9.jpg
+|   |           |       act1.png
+|   |           |       act2.png
+|   |           |       act3.png
+|   |           |       activity.jpg
+|   |           |       activity1.jpg
+|   |           |       activity2.jpg
+|   |           |       activity3.jpg
+|   |           |       ad1.jpg
+|   |           |       ad2.jpg
+|   |           |       ad3.jpg
+|   |           |       ad4.jpg
+|   |           |       ad5.jpg
+|   |           |       ad6.jpg
+|   |           |       ad7.jpg
+|   |           |       ad8.jpg
+|   |           |       addbg.png
+|   |           |       addicon.png
+|   |           |       addicon1.png
+|   |           |       addicon2.png
+|   |           |       advTip.jpg
+|   |           |       bamboo.jpg
+|   |           |       bamboo.png
+|   |           |       big.jpg
+|   |           |       blog01.jpg
+|   |           |       blog02.jpg
+|   |           |       blog03.jpg
+|   |           |       blog04.jpg
+|   |           |       blog05.jpg
+|   |           |       blog06.jpg
+|   |           |       blog07.jpg
+|   |           |       blog08.jpg
+|   |           |       blog09.jpg
+|   |           |       bonus.png
+|   |           |       browse1.jpg
+|   |           |       cake.jpg
+|   |           |       cake.png
+|   |           |       candy.jpg
+|   |           |       candy.png
+|   |           |       cardbg.jpg
+|   |           |       checkbox.gif
+|   |           |       chocolate.jpg
+|   |           |       chocolate.png
+|   |           |       chongzhi.png
+|   |           |       clockbg.png
+|   |           |       close.png
+|   |           |       combo.png
+|   |           |       comment.jpg_400x400.jpg
+|   |           |       comment.png
+|   |           |       cookies.jpg
+|   |           |       cookies.png
+|   |           |       coupon.png
+|   |           |       coupon2015.png
+|   |           |       coupon20150805.png
+|   |           |       couponli.png
+|   |           |       cp.jpg
+|   |           |       cp2.jpg
+|   |           |       day-to.png
+|   |           |       extra.png
+|   |           |       fish.jpg
+|   |           |       fish.png
+|   |           |       getAvatar.do.jpg
+|   |           |       gift_intro_bg.png
+|   |           |       gift_stamp_1.png
+|   |           |       gift_stamp_2.png
+|   |           |       gift_stamp_21.png
+|   |           |       gift_stamp_3.png
+|   |           |       gift_stamp_31.png
+|   |           |       header-bg.png
+|   |           |       header-bg1.jpg
+|   |           |       huismall.jpg
+|   |           |       hwbn40x40.jpg
+|   |           |       ibar_sprites.png
+|   |           |       icon-sale.png
+|   |           |       iconbig.png
+|   |           |       iconfont-bad.png
+|   |           |       iconfont-badon.png
+|   |           |       iconfont-evaluate.png
+|   |           |       iconfont-good.png
+|   |           |       iconfont-middle.png
+|   |           |       iconsmall.png
+|   |           |       iconsmall0.png
+|   |           |       iconsmall1.png
+|   |           |       iconsmall2.png
+|   |           |       iconsmall3.png
+|   |           |       image.jpg
+|   |           |       imgsearch1.jpg
+|   |           |       index_ico_png32.png
+|   |           |       item-pic.jpg
+|   |           |       kouhong.jpg_80x80.jpg
+|   |           |       kuaidi.png
+|   |           |       list1.jpg
+|   |           |       listsmall1.jpg
+|   |           |       loading.gif
+|   |           |       logo.png
+|   |           |       logo1.png
+|   |           |       logobig.png
+|   |           |       logobig1.png
+|   |           |       logobig2.png
+|   |           |       mansmall.jpg
+|   |           |       mask.png
+|   |           |       meat.jpg
+|   |           |       meat.png
+|   |           |       moneysmall.jpg
+|   |           |       mygift_bg.png
+|   |           |       navce.png
+|   |           |       navsmall.jpg
+|   |           |       no-img_mid_.jpg
+|   |           |       nut.jpg
+|   |           |       nut.png
+|   |           |       package.jpg
+|   |           |       package.png
+|   |           |       pay.png
+|   |           |       peraddbg.png
+|   |           |       peraddress.png
+|   |           |       peraddressbg.png
+|   |           |       receive.png
+|   |           |       refund.png
+|   |           |       return-process-cd.jpg
+|   |           |       row1.jpg
+|   |           |       row2.jpg
+|   |           |       row3.jpg
+|   |           |       row4.jpg
+|   |           |       sale-t.jpg
+|   |           |       sale-t_clock.jpg
+|   |           |       sale1.jpg
+|   |           |       sale2.jpg
+|   |           |       sale3.jpg
+|   |           |       scoll1.png
+|   |           |       scoll2.png
+|   |           |       send.png
+|   |           |       side.png
+|   |           |       songzi.jpg
+|   |           |       sprite.png
+|   |           |       sys_item_selected.gif
+|   |           |       T13iv.XiFdXXa94Hfd-32-32.png
+|   |           |       TB102.jpg
+|   |           |       TB1SSK7JpXXXXXCXXXXXXXXXXXX-800-600.png
+|   |           |       TB1_pic.jpg_200x200.jpg
+|   |           |       tea.jpg
+|   |           |       tea.png
+|   |           |       TJ.jpg
+|   |           |       tj.png
+|   |           |       tj1.png
+|   |           |       TJ2.jpg
+|   |           |       tj2.png
+|   |           |       tw1.jpg
+|   |           |       tw2.jpg
+|   |           |       tw3.jpg
+|   |           |       tw4.jpg
+|   |           |       tw5.jpg
+|   |           |       tw6.jpg
+|   |           |       tw7.jpg
+|   |           |       wallet.png
+|   |           |       wangyin.jpg
+|   |           |       wdsc.png
+|   |           |       weixin_code_145.png
+|   |           |       weizhifu.jpg
+|   |           |       YXARdXxj5.png
+|   |           |       zhifubao.jpg
+|   |           |       图标.png
+|   |           |       
+|   |           +---install
+|   |           |       install.html
+|   |           |       
+|   |           +---js
+|   |           |       address.js
+|   |           |       jquery-1.7.2.min.js
+|   |           |       jquery.flexslider.js
+|   |           |       jquery.imagezoom.min.js
+|   |           |       jquery.js
+|   |           |       list.js
+|   |           |       script.js
+|   |           |       
+|   |           \---product
+|   |                   introduction.html
+|   |                   
+|   \---test
+|       \---java
+|           \---com
+|               \---telang
+|                   \---weshop
+|                           WeshopApplicationTests.java
+|                           
+\---target
+    +---classes
+    |   |   application.properties
+    |   |   banner.txt
+    |   |   generator.xml
+    |   |   LanguagePacks.properties
+    |   |   LanguagePacks_en_US.properties
+    |   |   LanguagePacks_zh_CN.properties
+    |   |   
+    |   +---com
+    |   |   \---telang
+    |   |       \---weshop
+    |   |           |   WeshopApplication.class
+    |   |           |   
+    |   |           +---control
+    |   |           |       HomeControl.class
+    |   |           |       
+    |   |           +---service
+    |   |           \---util
+    |   |                   Generator.class
+    |   |                   PageUtil.class
+    |   |                   
+    |   +---mapper
+    |   +---META-INF
+    |   |   |   MANIFEST.MF
+    |   |   |   
+    |   |   \---maven
+    |   |       \---com.telang
+    |   |           \---weshop
+    |   |                   pom.properties
+    |   |                   pom.xml
+    |   |                   
+    |   \---templates
+    |       |   index.html
+    |       |   
+    |       +---AmazeUI-2.4.2
+    |       |   \---assets
+    |       |       +---css
+    |       |       |       admin.css
+    |       |       |       amazeui.css
+    |       |       |       amazeui.flat.css
+    |       |       |       amazeui.flat.min.css
+    |       |       |       amazeui.min.css
+    |       |       |       app.css
+    |       |       |       
+    |       |       +---fonts
+    |       |       |       fontawesome-webfont.eot
+    |       |       |       fontawesome-webfont.svg
+    |       |       |       fontawesome-webfont.ttf
+    |       |       |       fontawesome-webfont.woff
+    |       |       |       fontawesome-webfont.woff2
+    |       |       |       FontAwesome.otf
+    |       |       |       
+    |       |       +---i
+    |       |       |   |   app-icon72x72@2x.png
+    |       |       |   |   favicon.png
+    |       |       |   |   startup-640x1096.png
+    |       |       |   |   
+    |       |       |   \---examples
+    |       |       |           admin-chrome.png
+    |       |       |           admin-firefox.png
+    |       |       |           admin-ie.png
+    |       |       |           admin-opera.png
+    |       |       |           admin-safari.png
+    |       |       |           adminPage.png
+    |       |       |           blogPage.png
+    |       |       |           landing.png
+    |       |       |           landingPage.png
+    |       |       |           loginPage.png
+    |       |       |           sidebarPage.png
+    |       |       |           
+    |       |       \---js
+    |       |               amazeui.ie8polyfill.js
+    |       |               amazeui.ie8polyfill.min.js
+    |       |               amazeui.js
+    |       |               amazeui.min.js
+    |       |               amazeui.widgets.helper.js
+    |       |               amazeui.widgets.helper.min.js
+    |       |               app.js
+    |       |               handlebars.min.js
+    |       |               jquery.min.js
+    |       |               
+    |       +---basic
+    |       |   +---css
+    |       |   |       demo.css
+    |       |   |       
+    |       |   +---images
+    |       |   |       chongzhi.png
+    |       |   |       ibar_sprites.png
+    |       |   |       loading.gif
+    |       |   |       logo.png
+    |       |   |       logobar.png
+    |       |   |       logobig.png
+    |       |   |       no-img_mid_.jpg
+    |       |   |       wdsc.png
+    |       |   |       weixin_code_145.png
+    |       |   |       
+    |       |   \---js
+    |       |           jquery-1.7.min.js
+    |       |           jquery-1.9.min.js
+    |       |           quick_links.js
+    |       |           
+    |       +---css
+    |       |       addstyle.css
+    |       |       appstyle.css
+    |       |       bilstyle.css
+    |       |       blogstyle.css
+    |       |       blstyle.css
+    |       |       bostyle.css
+    |       |       cartstyle.css
+    |       |       cmstyle.css
+    |       |       colstyle.css
+    |       |       cpstyle.css
+    |       |       dlstyle.css
+    |       |       footstyle.css
+    |       |       hmstyle.css
+    |       |       infstyle.css
+    |       |       jsstyle.css
+    |       |       lostyle.css
+    |       |       newstyle.css
+    |       |       optstyle.css
+    |       |       orstyle.css
+    |       |       personal.css
+    |       |       refstyle.css
+    |       |       seastyle.css
+    |       |       skin.css
+    |       |       sortstyle.css
+    |       |       stepstyle.css
+    |       |       style.css
+    |       |       sustyle.css
+    |       |       systyle.css
+    |       |       
+    |       +---home
+    |       |       index - 副本.html
+    |       |       index.html
+    |       |       xx.html
+    |       |       
+    |       +---images
+    |       |       -0-saturn_solar.jpg_220x220.jpg
+    |       |       0-item_pic.jpg_220x220.jpg
+    |       |       01.jpg
+    |       |       01_mid.jpg
+    |       |       01_small.jpg
+    |       |       02.jpg
+    |       |       02_mid.jpg
+    |       |       02_small.jpg
+    |       |       03.jpg
+    |       |       03_mid.jpg
+    |       |       03_small.jpg
+    |       |       1-item_pic.jpg_220x220.jpg
+    |       |       1.jpg
+    |       |       10.jpg
+    |       |       11.jpg
+    |       |       1_160x160.jpg
+    |       |       2.jpg
+    |       |       2016.png
+    |       |       3.jpg
+    |       |       3CoOkxrFOP.png
+    |       |       4.jpg
+    |       |       5.jpg
+    |       |       556.png
+    |       |       557.png
+    |       |       559.png
+    |       |       566.png
+    |       |       566fda5cN4b8a1675.gif
+    |       |       6.jpg
+    |       |       62988.jpg_80x80.jpg
+    |       |       65.jpg_120x120xz.jpg
+    |       |       7.jpg
+    |       |       72h.png
+    |       |       8.jpg
+    |       |       88.jpg_120x120xz.jpg
+    |       |       9.jpg
+    |       |       act1.png
+    |       |       act2.png
+    |       |       act3.png
+    |       |       activity.jpg
+    |       |       activity1.jpg
+    |       |       activity2.jpg
+    |       |       activity3.jpg
+    |       |       ad1.jpg
+    |       |       ad2.jpg
+    |       |       ad3.jpg
+    |       |       ad4.jpg
+    |       |       ad5.jpg
+    |       |       ad6.jpg
+    |       |       ad7.jpg
+    |       |       ad8.jpg
+    |       |       addbg.png
+    |       |       addicon.png
+    |       |       addicon1.png
+    |       |       addicon2.png
+    |       |       advTip.jpg
+    |       |       bamboo.jpg
+    |       |       bamboo.png
+    |       |       big.jpg
+    |       |       blog01.jpg
+    |       |       blog02.jpg
+    |       |       blog03.jpg
+    |       |       blog04.jpg
+    |       |       blog05.jpg
+    |       |       blog06.jpg
+    |       |       blog07.jpg
+    |       |       blog08.jpg
+    |       |       blog09.jpg
+    |       |       bonus.png
+    |       |       browse1.jpg
+    |       |       cake.jpg
+    |       |       cake.png
+    |       |       candy.jpg
+    |       |       candy.png
+    |       |       cardbg.jpg
+    |       |       checkbox.gif
+    |       |       chocolate.jpg
+    |       |       chocolate.png
+    |       |       chongzhi.png
+    |       |       clockbg.png
+    |       |       close.png
+    |       |       combo.png
+    |       |       comment.jpg_400x400.jpg
+    |       |       comment.png
+    |       |       cookies.jpg
+    |       |       cookies.png
+    |       |       coupon.png
+    |       |       coupon2015.png
+    |       |       coupon20150805.png
+    |       |       couponli.png
+    |       |       cp.jpg
+    |       |       cp2.jpg
+    |       |       day-to.png
+    |       |       extra.png
+    |       |       fish.jpg
+    |       |       fish.png
+    |       |       getAvatar.do.jpg
+    |       |       gift_intro_bg.png
+    |       |       gift_stamp_1.png
+    |       |       gift_stamp_2.png
+    |       |       gift_stamp_21.png
+    |       |       gift_stamp_3.png
+    |       |       gift_stamp_31.png
+    |       |       header-bg.png
+    |       |       header-bg1.jpg
+    |       |       huismall.jpg
+    |       |       hwbn40x40.jpg
+    |       |       ibar_sprites.png
+    |       |       icon-sale.png
+    |       |       iconbig.png
+    |       |       iconfont-bad.png
+    |       |       iconfont-badon.png
+    |       |       iconfont-evaluate.png
+    |       |       iconfont-good.png
+    |       |       iconfont-middle.png
+    |       |       iconsmall.png
+    |       |       iconsmall0.png
+    |       |       iconsmall1.png
+    |       |       iconsmall2.png
+    |       |       iconsmall3.png
+    |       |       image.jpg
+    |       |       imgsearch1.jpg
+    |       |       index_ico_png32.png
+    |       |       item-pic.jpg
+    |       |       kouhong.jpg_80x80.jpg
+    |       |       kuaidi.png
+    |       |       list1.jpg
+    |       |       listsmall1.jpg
+    |       |       loading.gif
+    |       |       logo.png
+    |       |       logo1.png
+    |       |       logobig.png
+    |       |       logobig1.png
+    |       |       logobig2.png
+    |       |       mansmall.jpg
+    |       |       mask.png
+    |       |       meat.jpg
+    |       |       meat.png
+    |       |       moneysmall.jpg
+    |       |       mygift_bg.png
+    |       |       navce.png
+    |       |       navsmall.jpg
+    |       |       no-img_mid_.jpg
+    |       |       nut.jpg
+    |       |       nut.png
+    |       |       package.jpg
+    |       |       package.png
+    |       |       pay.png
+    |       |       peraddbg.png
+    |       |       peraddress.png
+    |       |       peraddressbg.png
+    |       |       receive.png
+    |       |       refund.png
+    |       |       return-process-cd.jpg
+    |       |       row1.jpg
+    |       |       row2.jpg
+    |       |       row3.jpg
+    |       |       row4.jpg
+    |       |       sale-t.jpg
+    |       |       sale-t_clock.jpg
+    |       |       sale1.jpg
+    |       |       sale2.jpg
+    |       |       sale3.jpg
+    |       |       scoll1.png
+    |       |       scoll2.png
+    |       |       send.png
+    |       |       side.png
+    |       |       songzi.jpg
+    |       |       sprite.png
+    |       |       sys_item_selected.gif
+    |       |       T13iv.XiFdXXa94Hfd-32-32.png
+    |       |       TB102.jpg
+    |       |       TB1SSK7JpXXXXXCXXXXXXXXXXXX-800-600.png
+    |       |       TB1_pic.jpg_200x200.jpg
+    |       |       tea.jpg
+    |       |       tea.png
+    |       |       TJ.jpg
+    |       |       tj.png
+    |       |       tj1.png
+    |       |       TJ2.jpg
+    |       |       tj2.png
+    |       |       tw1.jpg
+    |       |       tw2.jpg
+    |       |       tw3.jpg
+    |       |       tw4.jpg
+    |       |       tw5.jpg
+    |       |       tw6.jpg
+    |       |       tw7.jpg
+    |       |       wallet.png
+    |       |       wangyin.jpg
+    |       |       wdsc.png
+    |       |       weixin_code_145.png
+    |       |       weizhifu.jpg
+    |       |       YXARdXxj5.png
+    |       |       zhifubao.jpg
+    |       |       图标.png
+    |       |       
+    |       +---install
+    |       |       install.html
+    |       |       
+    |       +---js
+    |       |       address.js
+    |       |       jquery-1.7.2.min.js
+    |       |       jquery.flexslider.js
+    |       |       jquery.imagezoom.min.js
+    |       |       jquery.js
+    |       |       list.js
+    |       |       script.js
+    |       |       
+    |       +---product
+    |       |       introduction.html
+    |       |       
+    |       +---xxx
+    |       |       install.html
+    |       |       
+    |       \---xxxx
+    |               install.html
+    |               
+    \---test-classes
+        \---com
+            \---telang
+                \---weshop
+                        WeshopApplicationTests.class
+                        
