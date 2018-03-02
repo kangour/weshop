@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeControl {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String page(Model model) {
-        int a = 111/0;
-        model.addAttribute("user",666);
+    public String welcome(Model model) {
         return "index.html";
+    }
+    @RequestMapping(value = "/install", method = RequestMethod.GET)
+    public String install(Model model) {
+        return "install/install.html";
+    }
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String install2(Model model) {
+        return "home/index.html";
     }
 }
