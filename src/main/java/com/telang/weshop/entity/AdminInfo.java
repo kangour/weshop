@@ -11,6 +11,14 @@ public class AdminInfo {
 
     private Date regTime;
 
+    private String ip;
+
+    private String status;
+
+    private String email;
+
+    private String userImg;
+
     public Integer getId() {
         return id;
     }
@@ -41,5 +49,37 @@ public class AdminInfo {
 
     public void setRegTime(Date regTime) {
         this.regTime = regTime;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip == null ? null : ip.trim();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg == null ? null : userImg.trim();
     }
 }
