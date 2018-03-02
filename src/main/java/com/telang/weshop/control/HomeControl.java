@@ -16,7 +16,7 @@ public class HomeControl {
         return "install/install.html";
     }
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String install2(Model model) {
+    public String home(Model model) {
         return "home/index.html";
     }
 }
