@@ -7,16 +7,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeControl {
+    /***
+     * 首页
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "index.html";
-    }
-    @RequestMapping(value = "/install", method = RequestMethod.GET)
-    public String install(Model model) {
-        return "install/install.html";
-    }
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String home(Model model) {
         return "home/index.html";
+    }
+    /***
+     * 登录页
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        return "home/login.html";
+    }
+    /***
+     * 注册页
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(Model model) {
+        return "home/register.html";
     }
 }
