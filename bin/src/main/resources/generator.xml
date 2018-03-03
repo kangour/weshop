@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="特朗开发实验室" targetRuntime="MyBatis3">
+
+		<!-- 为代码添加注释 -->
+		<commentGenerator>
+			<!-- 是否需要删除自动生成的英文注释 -->
+			<property name="suppressAllComments" value="true" />
+			<!-- 是否在生成的注释中删除时间戳 -->
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库连接信息 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://gz-cdb-mfro5399.sql.tencentcdb.com:63292/weshop?characterEncoding=utf8&amp;useSSL=true"
+			userId="root" password="a123456+">
+		</jdbcConnection>
+		<!-- 数据类型解析器 -->
+		<javaTypeResolver>
+			<!-- 自动选择数值类型(如：int/long) -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成实体类包(com.telang.weshop.entity), targetPackage：包的全称， targetProject：在项目中的位置 
+			。 -->
+		<javaModelGenerator targetPackage="com.telang.weshop.entity"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 生成映射文件的位置(com.telang.weshop.mapper) -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 生成dao类包(com.telang.weshop.dao) -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.telang.weshop.dao" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 处理的第一张表，可以有多个table字节对应多张表。 tableName：是数据库表的名字。 domainObjectName：是实体类的名字。 -->
+		<table tableName="user_info" domainObjectName="UserInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+	<!-- 处理的第二张表。 -->
+		<table tableName="admin_info" domainObjectName="AdminInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+	</context>
+</generatorConfiguration>
