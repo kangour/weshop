@@ -31,4 +31,13 @@ public class PersonControl {
 	public String index(Model model) {
 		return "person/index.html";
 	}
+	/***
+     * 收藏夹页面
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "person/collection", method = RequestMethod.GET)
+    public String collection(Model model) {
+        return "person/collection.html";
+    }
 }
