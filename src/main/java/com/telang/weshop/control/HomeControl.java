@@ -26,15 +26,6 @@ public class HomeControl {
         return "home/login.html";
     }
     /***
-     * 搜索页
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(Model model) {
-        return "home/search.html";
-    }
-    /***
      * 注册页
      * @param model
      * @return
