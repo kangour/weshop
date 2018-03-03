@@ -10,7 +10,7 @@ public class HomeControl {
     /***
      * 首页
      * @param model
-     * @return
+     * @return 
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(Model model) {
