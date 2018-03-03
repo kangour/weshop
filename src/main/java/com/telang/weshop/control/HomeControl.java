@@ -10,7 +10,7 @@ public class HomeControl {
     /***
      * 首页
      * @param model
-     * @return
+     * @return 
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(Model model) {
@@ -24,6 +24,15 @@ public class HomeControl {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
         return "home/login.html";
+    }
+    /***
+     * 搜索页
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(Model model) {
+        return "home/search.html";
     }
     /***
      * 注册页
