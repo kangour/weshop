@@ -12,13 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PersonControl {
 	/***
-	 * 订单
+	 * 用户订单
 	 * 
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/person/order", method = RequestMethod.GET)
-	public String welcome(Model model) {
+	public String order(Model model) {
 		return "person/order.html";
+	}
+	/***
+	 * 订单
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/person", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "person/index.html";
 	}
 }
