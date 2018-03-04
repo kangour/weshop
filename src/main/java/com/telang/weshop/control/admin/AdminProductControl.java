@@ -8,5 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminProductControl {
 
-   
+	@RequestMapping(value = "admin/product/orderlist", method = RequestMethod.GET)
+    public String search(Model model) {
+        return "admin/product/orderList.html";
+    }
 }
