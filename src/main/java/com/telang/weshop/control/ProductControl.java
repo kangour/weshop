@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ProductControl {
 
-    /***
+    /*** 
      * 搜索页
      * @param model
      * @return
@@ -34,5 +34,14 @@ public class ProductControl {
     @RequestMapping(value = "product/success", method = RequestMethod.GET)
     public String success(Model model) {
         return "product/success.html";
+    }
+    /***
+     * 后台订单列表
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="admin/product/orderList", method = RequestMethod.GET)
+    public String orderList(Model model) {
+        return "admin/product/orderList.html";
     }
 }
