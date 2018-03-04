@@ -14,8 +14,8 @@ public class AdminPersonControl {
 	 * @return
 	 */
 	 
-	@RequestMapping(value = "admin/person/personlist", method = RequestMethod.GET)
-    public String search(Model model) {
+	@RequestMapping(value = "admin/person/personList", method = RequestMethod.GET)
+    public String personList(Model model) {
         return "admin/person/personList.html";
  }
 }

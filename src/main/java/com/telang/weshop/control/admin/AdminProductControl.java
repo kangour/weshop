@@ -25,5 +25,16 @@ public class AdminProductControl {
     public String comment(Model model) {
         return "admin/product/comment.html";
     }
+    
+    /***
+     * 后台评论列表
+     * @author zxy
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="admin/product/productList", method = RequestMethod.GET)
+    public String productList(Model model) {
+        return "admin/product/productList.html";
+    }
 }
 
