@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminPersonControl {
 	/**
-	 *  会员列表明
+	 *  会员列表
 	 *  @author zxy
 	 * @param model
 	 * @return
