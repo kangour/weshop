@@ -17,12 +17,12 @@ public class PersonControl {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/person/order", method = RequestMethod.GET)
+	@RequestMapping(value = "order", method = RequestMethod.GET)
 	public String order(Model model) {
 		return "person/order.html";
 	}
 	/***
-	 * 订单
+	 * 个人中心
 	 * 
 	 * @param model
 	 * @return
@@ -32,12 +32,15 @@ public class PersonControl {
 		return "person/index.html";
 	}
 	/***
-     * 收藏夹页面
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "person/collection", method = RequestMethod.GET)
-    public String collection(Model model) {
-        return "person/collection.html";
-    }
+	 * 个人信息
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "information", method = RequestMethod.GET)
+	public String information(Model model) {
+		return "person/information.html";
+	}
+	
+	
 }

@@ -34,4 +34,40 @@ public class HomeControl {
     public String register(Model model) {
         return "home/register.html";
     }
+    /***
+     * 关于我们
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String about(Model model) {
+        return "home/about.html";
+    }
+    /***
+     * 联系我们
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String contact(Model model) {
+        return "home/contact.html";
+    }
+    /***
+     * 联系我们
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/joinus", method = RequestMethod.GET)
+    public String joinus(Model model) {
+        return "home/joinus.html";
+    }
+    /***
+     * 新闻资讯内容
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/newsContent", method = RequestMethod.GET)
+    public String newsContent(Model model) {
+        return "home/newsContent.html";
+    }
 }

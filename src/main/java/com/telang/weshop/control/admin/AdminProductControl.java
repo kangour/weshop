@@ -27,7 +27,7 @@ public class AdminProductControl {
     }
     
     /***
-     * 后台评论列表
+     *  产品列表
      * @author zxy
      * @param model
      * @return
@@ -36,5 +36,17 @@ public class AdminProductControl {
     public String productList(Model model) {
         return "admin/product/productList.html";
     }
+    
+    /***
+    *  后台发布商品
+    * @author zxy
+    * @param model
+    * @return
+    */
+   @RequestMapping(value="admin/product/addProduct", method = RequestMethod.GET)
+   public String addProduct(Model model) {
+       return "admin/product/addProduct.html";
+   }
+    
 }
 

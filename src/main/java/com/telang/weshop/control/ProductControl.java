@@ -17,6 +17,15 @@ public class ProductControl {
     public String search(Model model) {
         return "product/search.html";
     }
+    /*** 
+     * 产品页
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "product", method = RequestMethod.GET)
+    public String product(Model model) {
+        return "product/product.html";
+    }
     /***
      * 产品详情页
      * @param model
