@@ -61,4 +61,13 @@ public class HomeControl {
     public String joinus(Model model) {
         return "home/joinus.html";
     }
+    /***
+     * 新闻资讯内容
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/newsContent", method = RequestMethod.GET)
+    public String newsContent(Model model) {
+        return "home/newsContent.html";
+    }
 }
