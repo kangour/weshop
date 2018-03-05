@@ -52,4 +52,13 @@ public class HomeControl {
     public String contact(Model model) {
         return "home/contact.html";
     }
+    /***
+     * 联系我们
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/joinus", method = RequestMethod.GET)
+    public String joinus(Model model) {
+        return "home/joinus.html";
+    }
 }
