@@ -35,12 +35,21 @@ public class HomeControl {
         return "home/register.html";
     }
     /***
-     * 注册页
+     * 关于我们
      * @param model
      * @return
      */
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String about(Model model) {
         return "home/about.html";
+    }
+    /***
+     * 联系我们
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String contact(Model model) {
+        return "home/contact.html";
     }
 }
