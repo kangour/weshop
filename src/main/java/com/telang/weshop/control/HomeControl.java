@@ -34,4 +34,13 @@ public class HomeControl {
     public String register(Model model) {
         return "home/register.html";
     }
+    /***
+     * 注册页
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String about(Model model) {
+        return "home/about.html";
+    }
 }
