@@ -36,6 +36,7 @@ public class AdminProductControl {
     public String productList(Model model) {
         return "admin/product/productList.html";
     }
+
     
     /***
     *  后台发布商品
@@ -49,4 +50,5 @@ public class AdminProductControl {
    }
     
 }
+
 
