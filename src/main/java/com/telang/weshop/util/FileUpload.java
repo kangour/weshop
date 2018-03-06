@@ -35,7 +35,8 @@ public class FileUpload {
 		try {
 			uploadFile(file.getBytes(), filePath, fileName); //调用文件上传方法
 			System.out.println("上传成功");
-			return "上传成功</br>" + "文件类型：" + contentType + "</br>文件名称：" + fileName + "</br>文件存放路径：" + filePath;
+			  String img=" <img src=\""+fileName+"\"/>"; // 图片
+			return img+"</br>上传成功</br>" + "文件类型：" + contentType + "</br>文件名称：" + fileName + "</br>文件存放路径：" + filePath;
 		} catch (Exception e) {
 			System.out.println("上传失败：" + e.getMessage());
 			return "上传失败：" + e.getMessage();
