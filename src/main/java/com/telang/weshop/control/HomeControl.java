@@ -16,6 +16,7 @@ public class HomeControl {
     public String welcome(Model model) {
         return "home/index.html";
     }
+   
     /***
      * 登录页
      * @param model
