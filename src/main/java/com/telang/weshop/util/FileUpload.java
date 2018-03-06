@@ -25,7 +25,7 @@ public class FileUpload {
 	public @ResponseBody String uploadImg(HttpServletRequest request) {  
 		
 		// String string =request.getParameter("");
-		 MultipartFile file=((MultipartHttpServletRequest) request).getFile("file");	//获取文件参数	 
+		MultipartFile file=((MultipartHttpServletRequest) request).getFile("file");	//获取文件参数	 
 		String contentType = file.getContentType();
 		String fileName = file.getOriginalFilename();		
 		//String fileName1 = UUID.randomUUID().toString()+fileName.substring(fileName.lastIndexOf("."));
