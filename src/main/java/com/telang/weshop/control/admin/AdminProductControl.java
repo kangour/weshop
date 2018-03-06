@@ -36,5 +36,5 @@ public class AdminProductControl {
     public String productList(Model model) {
         return "admin/product/productList.html";
     }
-}
+ }
 

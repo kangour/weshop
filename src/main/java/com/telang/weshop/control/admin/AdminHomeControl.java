@@ -18,4 +18,14 @@ public class AdminHomeControl {
     public String productList(Model model) {
         return "admin/home/adminLogin.html";
     }
+	/**
+	   * 新添加商品
+	   * @author 王承杨
+	   * @param model
+	   * @return
+	   */
+	@RequestMapping(value="admin/home/newGoods", method = RequestMethod.GET)
+  public String newGoods(Model model) {
+      return "admin/home/newGoods.html";
+  }
 }
