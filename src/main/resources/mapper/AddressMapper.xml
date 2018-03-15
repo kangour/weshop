@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.telang.weshop.dao.AddressMapper">
+  <resultMap id="BaseResultMap" type="com.telang.weshop.entity.Address">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="accept_name" jdbcType="VARCHAR" property="acceptName" />
+    <result column="accept_region" jdbcType="VARCHAR" property="acceptRegion" />
+    <result column="street_address" jdbcType="VARCHAR" property="streetAddress" />
+    <result column="phone_number" jdbcType="CHAR" property="phoneNumber" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="zipcode" jdbcType="CHAR" property="zipcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, accept_name, accept_region, street_address, phone_number, email, zipcode
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.telang.weshop.entity.Address">
+    insert into address (id, username, accept_name, 
+      accept_region, street_address, phone_number, 
+      email, zipcode)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{acceptName,jdbcType=VARCHAR}, 
+      #{acceptRegion,jdbcType=VARCHAR}, #{streetAddress,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=CHAR}, 
+      #{email,jdbcType=VARCHAR}, #{zipcode,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.telang.weshop.entity.Address">
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="acceptName != null">
+        accept_name,
+      </if>
+      <if test="acceptRegion != null">
+        accept_region,
+      </if>
+      <if test="streetAddress != null">
+        street_address,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptName != null">
+        #{acceptName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptRegion != null">
+        #{acceptRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="streetAddress != null">
+        #{streetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.telang.weshop.entity.Address">
+    update address
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptName != null">
+        accept_name = #{acceptName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptRegion != null">
+        accept_region = #{acceptRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="streetAddress != null">
+        street_address = #{streetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.telang.weshop.entity.Address">
+    update address
+    set username = #{username,jdbcType=VARCHAR},
+      accept_name = #{acceptName,jdbcType=VARCHAR},
+      accept_region = #{acceptRegion,jdbcType=VARCHAR},
+      street_address = #{streetAddress,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=CHAR},
+      email = #{email,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

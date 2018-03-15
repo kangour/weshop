@@ -34,8 +34,7 @@
 		</javaModelGenerator>
 
 		<!-- 生成映射文件的位置(com.telang.weshop.mapper) -->
-		<sqlMapGenerator targetPackage="mapper"
-			targetProject="src\main\resources">
+		<sqlMapGenerator targetPackage="mapper" targetProject="src\main\resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
@@ -44,16 +43,97 @@
 			targetPackage="com.telang.weshop.dao" targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-
-		<!-- 处理的第一张表，可以有多个table字节对应多张表。 tableName：是数据库表的名字。 domainObjectName：是实体类的名字。 -->
+		
+		
+		<!-- 可以有多个table字节对应多张表。 tableName：是数据库表的名字。 domainObjectName：是实体类的名字。 -->
+		<!-- 用户信息表 -->
 		<table tableName="user_info" domainObjectName="UserInfo"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
 		</table>
 
-	<!-- 处理的第二张表。 -->
+		<!-- 管理员信息 -->
 		<table tableName="admin_info" domainObjectName="AdminInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+		<!-- 地址 -->
+		<table tableName="address" domainObjectName="Address"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+		<!-- 管理员权限 -->
+		<table tableName="admin_permissions" domainObjectName="AdminPermissions"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+		<!-- 资讯 -->
+		<table tableName="article" domainObjectName="Article"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+		<!-- 购物车 -->
+		<table tableName="cart" domainObjectName="Cart"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+		<!-- 分类 -->
+		<table tableName="category" domainObjectName="Category"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+
+
+		<!-- 订单信息 -->
+		<table tableName="order_info" domainObjectName="OrderInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 订单状态 -->
+		<table tableName="order_status" domainObjectName="OrderStatus"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 产品 -->
+		<table tableName="product" domainObjectName="Product"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 产品参数 -->
+		<table tableName="product_attribute" domainObjectName="ProductAttribute"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 收藏 -->
+		<table tableName="product_collection" domainObjectName="ProductCollection"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!-- 产品图片 -->
+		<table tableName="product_images" domainObjectName="ProductImages"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<!--首页幻灯片 -->
+		<table tableName="slides" domainObjectName="Slides"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
