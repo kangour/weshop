@@ -43,6 +43,8 @@
 			targetPackage="com.telang.weshop.dao" targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
+		
+		
 		<!-- 可以有多个table字节对应多张表。 tableName：是数据库表的名字。 domainObjectName：是实体类的名字。 -->
 		<!-- 用户信息表 -->
 		<table tableName="user_info" domainObjectName="UserInfo"
