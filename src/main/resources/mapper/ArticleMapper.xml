@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.telang.weshop.dao.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.telang.weshop.entity.Article">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="read_number" jdbcType="INTEGER" property="readNumber" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.telang.weshop.entity.Article">
+    <result column="article_content" jdbcType="LONGVARCHAR" property="articleContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, article_title, publish_time, author, read_number
+  </sql>
+  <sql id="Blob_Column_List">
+    article_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.telang.weshop.entity.Article">
+    insert into article (id, article_title, publish_time, 
+      author, read_number, article_content
+      )
+    values (#{id,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{author,jdbcType=VARCHAR}, #{readNumber,jdbcType=INTEGER}, #{articleContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.telang.weshop.entity.Article">
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="readNumber != null">
+        read_number,
+      </if>
+      <if test="articleContent != null">
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitle != null">
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="readNumber != null">
+        #{readNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null">
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.telang.weshop.entity.Article">
+    update article
+    <set>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="readNumber != null">
+        read_number = #{readNumber,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null">
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.telang.weshop.entity.Article">
+    update article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      author = #{author,jdbcType=VARCHAR},
+      read_number = #{readNumber,jdbcType=INTEGER},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.telang.weshop.entity.Article">
+    update article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      author = #{author,jdbcType=VARCHAR},
+      read_number = #{readNumber,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
