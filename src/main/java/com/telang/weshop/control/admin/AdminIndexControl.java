@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminIndexControl {
    
 	  /**
-	   * 管理员后台登陆
-	   * @author zhangxy
+	   * 后台首页
+	   * @author wangchengyang
 	   * @param model
 	   * @return
 	   */
