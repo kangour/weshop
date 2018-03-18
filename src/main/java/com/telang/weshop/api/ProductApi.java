@@ -30,4 +30,13 @@ public class ProductApi {
 		return prod.selectByPrimaryKey(1);
 	}
 
+	/***
+	 * 获取所有产品信息
+	 * @return  
+	 */
+	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
+	public Product[] GetAllProduct() {
+	    
+		return prod.selectAll();
+	}
 }

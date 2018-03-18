@@ -17,6 +17,13 @@
     id, title, main_image, price, stock, shelves, sales_num, collection_num, sort_whight, 
     add_time
   </sql>
+  <!-- 查询所有商品数据 -->
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
