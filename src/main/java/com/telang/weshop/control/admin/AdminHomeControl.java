@@ -27,7 +27,7 @@ public class AdminHomeControl {
      * @param model
      * @return
      */
-    @RequestMapping(value = "admin/index", method = RequestMethod.GET)
+    @RequestMapping(value = "admin", method = RequestMethod.GET)
     public String index(Model model) {
         return "admin/home/index.html";
     }
