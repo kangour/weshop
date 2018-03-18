@@ -5,7 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="main_image" jdbcType="INTEGER" property="mainImage" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="stock" jdbcType="INTEGER" property="stock" />
     <result column="shelves" jdbcType="INTEGER" property="shelves" />
     <result column="sales_num" jdbcType="INTEGER" property="salesNum" />
@@ -17,6 +17,13 @@
     id, title, main_image, price, stock, shelves, sales_num, collection_num, sort_whight, 
     add_time
   </sql>
+  <!-- 查询所有商品数据 -->
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -33,7 +40,7 @@
       sales_num, collection_num, sort_whight, 
       add_time)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{mainImage,jdbcType=INTEGER}, 
-      #{price,jdbcType=DECIMAL}, #{stock,jdbcType=INTEGER}, #{shelves,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{stock,jdbcType=INTEGER}, #{shelves,jdbcType=INTEGER}, 
       #{salesNum,jdbcType=INTEGER}, #{collectionNum,jdbcType=INTEGER}, #{sortWhight,jdbcType=INTEGER}, 
       #{addTime,jdbcType=TIMESTAMP})
   </insert>
@@ -82,7 +89,7 @@
         #{mainImage,jdbcType=INTEGER},
       </if>
       <if test="price != null">
-        #{price,jdbcType=DECIMAL},
+        #{price,jdbcType=DOUBLE},
       </if>
       <if test="stock != null">
         #{stock,jdbcType=INTEGER},
@@ -114,7 +121,7 @@
         main_image = #{mainImage,jdbcType=INTEGER},
       </if>
       <if test="price != null">
-        price = #{price,jdbcType=DECIMAL},
+        price = #{price,jdbcType=DOUBLE},
       </if>
       <if test="stock != null">
         stock = #{stock,jdbcType=INTEGER},
@@ -141,7 +148,7 @@
     update product
     set title = #{title,jdbcType=VARCHAR},
       main_image = #{mainImage,jdbcType=INTEGER},
-      price = #{price,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DOUBLE},
       stock = #{stock,jdbcType=INTEGER},
       shelves = #{shelves,jdbcType=INTEGER},
       sales_num = #{salesNum,jdbcType=INTEGER},
