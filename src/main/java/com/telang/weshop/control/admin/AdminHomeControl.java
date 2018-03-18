@@ -38,7 +38,7 @@ public class AdminHomeControl {
      * @param model
      * @return
      */
-    @RequestMapping(value = "admin/home/indexContent.html", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/home/indexContent", method = RequestMethod.GET)
     public String indexContent(Model model) {
         return "admin/home/indexContent.html";
     }
