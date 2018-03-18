@@ -11,6 +11,8 @@ public interface OrderInfoMapper {
 
     OrderInfo selectByPrimaryKey(Integer id);
 
+    OrderInfo[] selectAll();
+
     int updateByPrimaryKeySelective(OrderInfo record);
 
     int updateByPrimaryKey(OrderInfo record);
