@@ -31,4 +31,15 @@ public class AdminHomeControl {
     public String index(Model model) {
         return "admin/home/index.html";
     }
+    /**
+     * 后台首页内容页
+     * 
+     * @author wangchengyang
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "admin/home/indexContent.html", method = RequestMethod.GET)
+    public String indexContent(Model model) {
+        return "admin/home/indexContent.html";
+    }
 }
