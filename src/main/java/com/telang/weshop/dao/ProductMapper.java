@@ -14,4 +14,7 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    // 查询所有商品数据
+    Product[] selectAll();
 }

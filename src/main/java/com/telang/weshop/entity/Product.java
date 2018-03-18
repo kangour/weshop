@@ -9,7 +9,7 @@ public class Product {
 
     private Integer mainImage;
 
-    private Long price;
+    private Double price;
 
     private Integer stock;
 
@@ -47,11 +47,11 @@ public class Product {
         this.mainImage = mainImage;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
