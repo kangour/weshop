@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+<meta charset="UTF-8">
+<title>测试</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<script src="/admin/assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>ajax 请求接口数据并显示</h1>
+</body>
+
+<script>
+	/**
+	 *  js，用于页面发送ajax请求
+	 */
+	getData()
+	function getData() {
+		$.ajax({
+			url : "/api/v1/delete/product/id",
+			type : "delete",
+			dataType : "json",
+			data : {
+				id : 1
+			},
+			success : function(data) {
+				/* 执行成功后，弹出第一条数据的标题 */
+				alert('删除成功')
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("错误：接口请求失败了。");
+                console.log("状态码："+XMLHttpRequest.status);
+                console.log("准备状态："+XMLHttpRequest.readyState);
+                console.log("文本状态："+textStatus);
+            }
+		});
+	}
+</script>
+
+
+</html>
