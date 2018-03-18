@@ -20,7 +20,7 @@ public class ProductApi {
 
 	/***
 	 * 通过id获取产品信息
-	 * @return 返回的对象，springboot会自动转换为json字符串。
+	 * @return 返回一个商品对象，springboot会自动转换为json字符串。
 	 */
 	@RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
 	public Product GetProductById() { 
