@@ -10,7 +10,7 @@ import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
 
 /***
- * 产品相关api
+ * 产品相关ape
  * 
  * @author 开朗
  *
@@ -18,37 +18,55 @@ import com.telang.weshop.entity.Product;
 @RestController
 public class ProductApi {
 	// 定义一个产品对象
-    @Autowired
+	@Autowired
 	private ProductMapper prod;
 
 	/***
+	 * 插入一条产品数据
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/api/v1/post/product/a", method = RequestMethod.POST)
+	public int PostProduct( @RequestParam("price") double price,@RequestParam("title") String title) {
+		Product product = new Product();
+		product.setTitle(title);
+		product.setPrice(price);
+
+		return prod.insertSelective(product);
+	}
+
+	/***
 	 * 通过id获取产品信息
+	 * 
 	 * @return 返回一个商品对象，springboot会自动转换为json字符串。
-	 */  
+	 */
 
 	@RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
 	public Product GetProductById(@RequestParam("id") Integer id) {
-		
-	    return prod.selectByPrimaryKey(id);
+
+		return prod.selectByPrimaryKey(id);
 	}
 
-    /***
-     * 获取所有产品信息
-     * @return  
-     */
-    @RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
-    public Product[] GetAllProduct() {
-        
-        return prod.selectAll();
-    }
+	/***
+	 * 获取所有产品信息
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
+	public Product[] GetAllProduct() {
 
-    /***
-     * 根据id删除商品的api
-     * @return  
-     */
-    @RequestMapping(value = "/api/v1/delete/product/id", method = RequestMethod.DELETE)
-    public int DeleteProductById(@RequestParam("id") Integer id) {
-        
-        return prod.deleteByPrimaryKey(id);
-    }
+		return prod.selectAll();
+	}
+
+	/***
+	 * 根据id删除商品的api
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/api/v1/delete/product/id", method = RequestMethod.DELETE)
+	public int DeleteProductById(@RequestParam("id") Integer id) {
+
+		return prod.deleteByPrimaryKey(id);
+	}
 }

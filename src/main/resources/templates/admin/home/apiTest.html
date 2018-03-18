@@ -20,15 +20,15 @@
 	getData()
 	function getData() {
 		$.ajax({
-			url : "/api/v1/delete/product/id",
-			type : "delete",
+			url : "/api/v1/post/product/a",
+			type : "post",
 			dataType : "json",
 			data : {
-				id : 1
+                title : '霸王剃须刀' 
 			},
 			success : function(data) {
 				/* 执行成功后，弹出第一条数据的标题 */
-				alert('删除成功')
+				alert(data)
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log("错误：接口请求失败了。");
