@@ -26,7 +26,8 @@ public class ProductApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/post/product/a", method = RequestMethod.POST)
-    public int PostProduct(@RequestParam("price") double price, @RequestParam("title") String title) {
+    public int PostProduct(@RequestParam("price") double price, 
+            @RequestParam("title") String title) {
         Product product = new Product();
         product.setTitle(title);
         product.setPrice(price);
@@ -53,7 +54,7 @@ public class ProductApi {
      */
 
     @RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
-    public Product GetProductById(@RequestParam("id") Integer id) {
+    public Product GetProductById(@RequestParam(value = "id", required = false) Integer id) {
 
         return prod.selectByPrimaryKey(id);
     }
