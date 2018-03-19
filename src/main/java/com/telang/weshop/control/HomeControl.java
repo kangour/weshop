@@ -2,6 +2,7 @@ package com.telang.weshop.control;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -71,4 +72,11 @@ public class HomeControl {
     public String newsContent(Model model) {
         return "home/newsContent.html";
     }
+
+    // 错误页跳转（自动跳转到根目录的error.html）
+    @GetMapping("/error")
+    public String errPage(Model model) { 
+        return "";
+    }
+
 }

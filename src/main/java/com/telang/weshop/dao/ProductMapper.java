@@ -11,10 +11,11 @@ public interface ProductMapper {
 
     Product selectByPrimaryKey(Integer id);
 
+    // 查询所有商品数据
+    Product[] selectAll();
+    
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
 
-    // 查询所有商品数据
-    Product[] selectAll();
 }
