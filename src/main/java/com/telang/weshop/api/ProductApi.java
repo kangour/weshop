@@ -75,11 +75,28 @@ public class ProductApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/patch/product/id", method = RequestMethod.PATCH)
-    public int PatchProductById(@RequestParam("id") Integer id, @RequestParam("title") String title) {
+    public int PatchProductById(@RequestParam(value = "id", required = false) Integer id,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "price", required = false) Double price,
+            @RequestParam(value = "main_image", required = false) Integer main_image,
+            @RequestParam(value = "stock", required = false) Integer stock,
+            @RequestParam(value = "shelves", required = false) Integer shelves,
+            @RequestParam(value = "sales_num", required = false) Integer sales_num,
+            @RequestParam(value = "collection_num", required = false) Integer collection_num,
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
+
         Product pr = new Product();
+
         pr.setId(id);
         pr.setTitle(title);
-        return prod.updateByPrimaryKey(pr);
-    } 
+        pr.setPrice(price);
+        pr.setMainImage(main_image);
+        pr.setStock(stock);
+        pr.setShelves(shelves);
+        pr.setSalesNum(sales_num);
+        pr.setCollectionNum(collection_num);
+        pr.setSortWhight(sort_whight);
+        return prod.updateByPrimaryKeySelective(pr);
+    }
 
 }
