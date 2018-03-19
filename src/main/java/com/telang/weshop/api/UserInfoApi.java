@@ -11,7 +11,7 @@ import com.telang.weshop.entity.UserInfo;
 /***
  * 用户信息管理api
  * 
- * @author soulsjie
+ * @author soulsjie 222
  *
  */
 @RestController
