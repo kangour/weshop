@@ -10,17 +10,17 @@ import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
 
 /***
- * 产品相关api
+ * 相关api
  * 
  */
 @RestController
 public class ProductApi {
-    // 定义一个产品接口类对象
+    // 定义一个接口类对象
     @Autowired
     private ProductMapper prod;
 
     /***
-     * 插入一条产品数据
+     * 插入一条数据
      * 
      * @param id
      * @return
@@ -51,7 +51,7 @@ public class ProductApi {
     }
 
     /***
-     * 根据id删除商品
+     * 根据id删除
      * 
      * @return
      */
@@ -62,10 +62,10 @@ public class ProductApi {
     }
 
     /***
-     * 通过id获取产品信息
+     * 通过id获取信息
      * 
      * @param id
-     * @return 返回一个商品对象，springboot会自动转换为json字符串。
+     * @return 返回一个对象，springboot会自动转换为json字符串。
      */
 
     @RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
@@ -75,7 +75,7 @@ public class ProductApi {
     }
 
     /***
-     * 获取所有产品信息
+     * 获取所有信息
      * 
      * @return
      */
@@ -86,7 +86,7 @@ public class ProductApi {
     }
 
     /***
-     * 根据id修改产品信息
+     * 根据id修改信息
      * 
      * @return
      */
