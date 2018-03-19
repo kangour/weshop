@@ -1,4 +1,4 @@
-package com.telang.weshop.api; 
+package com.telang.weshop.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,27 +9,24 @@ import com.telang.weshop.dao.OrderInfoMapper;
 import com.telang.weshop.entity.OrderInfo;
 
 /***
- * 产品相关api
- * 
- * @author 开朗
+ * 订单相关api
  *
  */
 @RestController
 public class OrderApi {
-	// 定义一个产品接口类对象
-	@Autowired
-	private OrderInfoMapper order;
+    // 定义一个产品接口类对象
+    @Autowired
+    private OrderInfoMapper order;
 
-	/***
-	 * 获取所有订单信息
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "/api/v1/get/orderinfo/all", method = RequestMethod.GET)
-	public OrderInfo[] GetAllOrderInfo() {
+    /***
+     * 获取所有订单信息
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/api/v1/get/orderinfo/all", method = RequestMethod.GET)
+    public OrderInfo[] GetAllOrderInfo() {
 
-		return order.selectAll();
-	}
-	
-	
+        return order.selectAll();
+    }
+
 }
