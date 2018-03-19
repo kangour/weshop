@@ -16,7 +16,7 @@ import com.telang.weshop.entity.UserInfo;
  */
 @RestController
 public class UserInfoApi {
-    //实例化用户信息对象
+    //定义用户信息接口类对象
     @Autowired
     private UserInfoMapper use; 
     /***
