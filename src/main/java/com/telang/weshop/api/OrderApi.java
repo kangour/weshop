@@ -23,7 +23,7 @@ public class OrderApi {
      * 
      * @return
      */
-    @RequestMapping(value = "/api/v1/get/orderinfo/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/get/order_info/all", method = RequestMethod.GET)
     public OrderInfo[] GetAllOrderInfo() {
 
         return order.selectAll();

@@ -10,7 +10,7 @@ import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
 
 /***
- * 相关api
+ * 产品相关api
  * 
  */
 @RestController
