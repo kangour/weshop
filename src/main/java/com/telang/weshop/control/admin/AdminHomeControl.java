@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminHomeControl {
 
     /**
-     * 测试页面：前端ajax请求api数据 
+     * 测试页面：前端ajax请求api数据
      * 
      * @author 开朗
      * @param model
@@ -20,6 +20,7 @@ public class AdminHomeControl {
     public String apiTest(Model model) {
         return "admin/home/apiTest.html";
     }
+
     /**
      * 管理员后台登陆
      * 
@@ -43,6 +44,7 @@ public class AdminHomeControl {
     public String index(Model model) {
         return "admin/home/index.html";
     }
+
     /**
      * 后台首页内容页
      * 
@@ -53,15 +55,6 @@ public class AdminHomeControl {
     @RequestMapping(value = "admin/home/indexContent", method = RequestMethod.GET)
     public String indexContent(Model model) {
         return "admin/home/indexContent.html";
-    } 
-    /***
-     * 错误页
-     * @param model
-     * @return
-     */   
-    @GetMapping("/error")
-    public String errPage(Model model) { 
-        return "admin/home/error.html";
     }
 
 }
