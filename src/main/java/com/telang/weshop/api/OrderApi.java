@@ -9,14 +9,14 @@ import com.telang.weshop.dao.OrderInfoMapper;
 import com.telang.weshop.entity.OrderInfo;
 
 /***
- * 产品相关ape
+ * 产品相关api
  * 
  * @author 开朗
  *
  */
 @RestController
 public class OrderApi {
-	// 定义一个产品对象
+	// 定义一个产品接口类对象
 	@Autowired
 	private OrderInfoMapper order;
 

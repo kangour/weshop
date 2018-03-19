@@ -23,7 +23,7 @@ public class UserInfoApi {
      * 获取用户列表
      * @return  
      */
-    @RequestMapping(value = "/api/v1/get/userinfo/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/get/user_info/all", method = RequestMethod.GET)
     public UserInfo[] GetAllUserInfo() {
         
         return use.selectAll();
@@ -33,7 +33,7 @@ public class UserInfoApi {
      * 按用户名获取用户信息
      * @return  
      */
-    @RequestMapping(value = "/api/v1/get/userinfo/username", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/get/user_info/username", method = RequestMethod.GET)
     UserInfo selectByUsername(String username) {
         return use.selectByUsername("soulsjie");
     }

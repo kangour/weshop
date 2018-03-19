@@ -23,6 +23,6 @@ public class PageUtil {
 	@ExceptionHandler(value = Exception.class)
 	public void getException(HttpServletRequest req, Exception e) {
 		logger.error("捕获到一个全局异常！");
-		logger.error("异常类名：" + e.getMessage());
+		logger.error("异常信息：" + e.getMessage());
 	}
 }
