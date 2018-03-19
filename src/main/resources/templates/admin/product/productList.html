@@ -16,6 +16,10 @@
 <link rel="stylesheet" href="/admin/assets/css/admin.css">
 <script src="/admin/assets/js/jquery.min.js"></script>
 <script src="/admin/assets/js/app.js"></script>
+
+<!--  引入 Vue.js -->
+<script src="/admin/assets/js/vue.min.js"></script>
+
 </head>
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
@@ -30,10 +34,6 @@
 <body> 
 
 <div class=" admin-content">
- 
-    
-    
-
 
 <div class="admin-biaogelist">
     
@@ -91,52 +91,48 @@
 
 
     <form class="am-form am-g">
-          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+          <table id="productList" width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
-              <tr class="am-success">
-                <th class="table-check"><input type="checkbox" /></th>
+                <tr class="am-success">
+                <th class="table-check"><input type="checkbox"  v-model="allchecked"/></th> <!-- 全选 -->
                 <th class="table-id">排序</th>
                 <th class="table-id">ID</th>
                 <th class="table-title">标题</th>
                 <th class="table-type">类别</th>
+                <th class="table-type">价格</th>
+                <th class="table-type">库存</th>
+                <th class="table-type">销量</th>
+                <th class="table-type">收藏量</th>
                 <th class="table-author am-hide-sm-only">上架/下架 <i class="am-icon-check am-text-warning"></i> <i class="am-icon-close am-text-primary"></i></th>
-                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-date am-hide-sm-only">上架时间</th>
                 <th width="163px" class="table-set">操作</th>
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox" /></td>
+            </thead>     
+            <tbody >
+              <!--    数据来自ajax请求 -->
+               
+              <tr v-for="product in productList">
+                <td><input type="checkbox" value="eed"  v-model="check"/></td>
                 <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
-                <td>14</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-check am-text-warning"></i></td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                <td>{{product.id}}</td>   <!-- id -->
+                <td><a href="#">{{product.title}}</a></td>  <!-- 标题 -->
+                <td>default</td>  <!-- 类别 -->
+                <td>{{product.price}}</td>    <!--  价格 -->
+                <td>{{product.stock}}</td>  <!-- 库存 -->
+                <td>{{product.salesNum}}</td>   <!-- 销量 -->
+                 <td >{{product.collectioNum}}</td>  <!-- 收藏 -->
+                <td  v-if="product.shelves==1">上架 <i class="am-icon-check am-text-warning"></i> </td>    <!-- 上架/下架 -->
+                <td  v-else>下架 <i class="am-icon-close am-text-primary"></i></td>    <!-- 上架/下架 -->
+                <td >{{product.addTime}}</td>  <!--  时间 -->
                 <td><div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看商品详情"></span> </button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span class="am-icon-pencil-square-o" title="编辑商品"></span></button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span class="am-icon-trash-o" title="删除商品"></span></button>
+                      <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><a  v-bind:href="['#?id='+product.id]"><span class="am-icon-search" title="查看商品详情"></span> </a></button>
+                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"><a  v-bind:href="['#?id='+product.id]"><span class="am-icon-pencil-square-o" title="编辑商品"></span></a></button>
+                      <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round">  <a  v-bind:href="['#?id='+product.id]"><span class="am-icon-trash-o" title="删除商品"></span></a></button>
                     </div>
                   </div></td>
               </tr>
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td><input type="text" class="am-form-field am-radius am-input-sm"/></td>
-                <td>15</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only"><i class="am-icon-close am-text-primary"></i></td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td><div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                     <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><span class="am-icon-search" title="查看商品详情"></span> </button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span class="am-icon-pencil-square-o" title="编辑商品"></span></button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span class="am-icon-trash-o" title="删除商品"></span></button>
-                    </div>
-                  </div></td>
-              </tr>
+             
             </tbody>
           </table>
           
@@ -175,9 +171,6 @@
 
 </div>
 
-
-
-
 </div>
 
 <!--[if lt IE 9]>
@@ -191,6 +184,47 @@
 <!--[if (gte IE 9)|!(IE)]><!--> 
 <script src="assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
+
+<!-- 请求数据 -->
+<script type="text/javascript">
+     var productList=new Vue({
+    	  el:'#productList',
+    	 
+    	  data:{   
+    		  allchecked:false, //默认不全选
+        	  check:[],
+    		  productList:[]  
+    		 }, 
+   
+    		  created:function(){   
+    	    	var product=this;
+    	    	 
+    	    		 $.ajax({
+    	    			url:"/api/v1/get/product/all", //接口地址
+    	    			type:"get",  //请求类型
+    	    			dataType:"json", //数据类型
+    	    			success:function(data){   //请求成功    	    				
+    	    				product.productList=data;    
+    	    			},
+    	    			error : function(XMLHttpRequest, textStatus, errorThrown) {  //请求失败
+    	                    console.log("错误：接口请求失败了。");
+    	                    console.log("状态码："+XMLHttpRequest.status);
+    	                    console.log("准备状态："+XMLHttpRequest.readyState);
+    	                    console.log("文本状态："+textStatus);
+    	                }
+    	    			  
+    	    		  }); //end ajax 
+    	       },//end function
+    	    watch: {
+    	    	allchecked:function( nal) {	 	//全选 和取消全选
+    	   				this.check =nal    	   				
+    	   		}
+    	   	}  //end watch
+    	 
+     }) //end Vue
+
+
+</script>
 
 
 
