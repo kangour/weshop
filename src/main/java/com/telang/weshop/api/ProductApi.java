@@ -26,13 +26,28 @@ public class ProductApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/post/product/a", method = RequestMethod.POST)
-    public int PostProduct(@RequestParam("price") double price, 
-            @RequestParam("title") String title) {
-        Product product = new Product();
-        product.setTitle(title);
-        product.setPrice(price);
+    public int PostProduct(@RequestParam(value = "id", required = false) Integer id,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "price", required = false) Double price,
+            @RequestParam(value = "main_image", required = false) Integer main_image,
+            @RequestParam(value = "stock", required = false) Integer stock,
+            @RequestParam(value = "shelves", required = false) Integer shelves,
+            @RequestParam(value = "sales_num", required = false) Integer sales_num,
+            @RequestParam(value = "collection_num", required = false) Integer collection_num,
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
 
-        return prod.insertSelective(product);
+        Product pr = new Product();
+
+        pr.setId(id);
+        pr.setTitle(title);
+        pr.setPrice(price);
+        pr.setMainImage(main_image);
+        pr.setStock(stock);
+        pr.setShelves(shelves);
+        pr.setSalesNum(sales_num);
+        pr.setCollectionNum(collection_num);
+        pr.setSortWhight(sort_whight);
+        return prod.insertSelective(pr);
     }
 
     /***
