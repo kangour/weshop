@@ -15,27 +15,43 @@ import com.telang.weshop.entity.Product;
  */
 @RestController
 public class ProductApi {
-    // 定义一个产品接口类对象
+    // 定义一个接口类对象
     @Autowired
     private ProductMapper prod;
 
     /***
-     * 插入一条产品数据
+     * 插入一条数据
      * 
      * @param id
      * @return
      */
     @RequestMapping(value = "/api/v1/post/product/a", method = RequestMethod.POST)
-    public int PostProduct(@RequestParam("price") double price, @RequestParam("title") String title) {
-        Product product = new Product();
-        product.setTitle(title);
-        product.setPrice(price);
+    public int PostProduct(@RequestParam(value = "id", required = false) Integer id,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "price", required = false) Double price,
+            @RequestParam(value = "main_image", required = false) Integer main_image,
+            @RequestParam(value = "stock", required = false) Integer stock,
+            @RequestParam(value = "shelves", required = false) Integer shelves,
+            @RequestParam(value = "sales_num", required = false) Integer sales_num,
+            @RequestParam(value = "collection_num", required = false) Integer collection_num,
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
 
-        return prod.insertSelective(product);
+        Product pr = new Product();
+
+        pr.setId(id);
+        pr.setTitle(title);
+        pr.setPrice(price);
+        pr.setMainImage(main_image);
+        pr.setStock(stock);
+        pr.setShelves(shelves);
+        pr.setSalesNum(sales_num);
+        pr.setCollectionNum(collection_num);
+        pr.setSortWhight(sort_whight);
+        return prod.insertSelective(pr);
     }
 
     /***
-     * 根据id删除商品
+     * 根据id删除
      * 
      * @return
      */
@@ -46,20 +62,20 @@ public class ProductApi {
     }
 
     /***
-     * 通过id获取产品信息
+     * 通过id获取信息
      * 
      * @param id
-     * @return 返回一个商品对象，springboot会自动转换为json字符串。
+     * @return 返回一个对象，springboot会自动转换为json字符串。
      */
 
     @RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
-    public Product GetProductById(@RequestParam("id") Integer id) {
+    public Product GetProductById(@RequestParam(value = "id", required = false) Integer id) {
 
         return prod.selectByPrimaryKey(id);
     }
 
     /***
-     * 获取所有产品信息
+     * 获取所有信息
      * 
      * @return
      */
@@ -70,16 +86,33 @@ public class ProductApi {
     }
 
     /***
-     * 根据id修改产品信息
+     * 根据id修改信息
      * 
      * @return
      */
     @RequestMapping(value = "/api/v1/patch/product/id", method = RequestMethod.PATCH)
-    public int PatchProductById(@RequestParam("id") Integer id, @RequestParam("title") String title) {
+    public int PatchProductById(@RequestParam(value = "id", required = false) Integer id,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "price", required = false) Double price,
+            @RequestParam(value = "main_image", required = false) Integer main_image,
+            @RequestParam(value = "stock", required = false) Integer stock,
+            @RequestParam(value = "shelves", required = false) Integer shelves,
+            @RequestParam(value = "sales_num", required = false) Integer sales_num,
+            @RequestParam(value = "collection_num", required = false) Integer collection_num,
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
+
         Product pr = new Product();
+
         pr.setId(id);
         pr.setTitle(title);
-        return prod.updateByPrimaryKey(pr);
-    } 
+        pr.setPrice(price);
+        pr.setMainImage(main_image);
+        pr.setStock(stock);
+        pr.setShelves(shelves);
+        pr.setSalesNum(sales_num);
+        pr.setCollectionNum(collection_num);
+        pr.setSortWhight(sort_whight);
+        return prod.updateByPrimaryKeySelective(pr);
+    }
 
 }
