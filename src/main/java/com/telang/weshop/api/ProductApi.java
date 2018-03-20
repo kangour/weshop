@@ -34,7 +34,8 @@ public class ProductApi {
             @RequestParam(value = "shelves", required = false) Integer shelves,
             @RequestParam(value = "sales_num", required = false) Integer sales_num,
             @RequestParam(value = "collection_num", required = false) Integer collection_num,
-            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight,
+            @RequestParam(value = "categories", required = false) Integer categories) {
 
         Product pr = new Product();
 
@@ -47,6 +48,7 @@ public class ProductApi {
         pr.setSalesNum(sales_num);
         pr.setCollectionNum(collection_num);
         pr.setSortWhight(sort_whight);
+        pr.setCategories(categories);
         return prod.insertSelective(pr);
     }
 
@@ -99,7 +101,8 @@ public class ProductApi {
             @RequestParam(value = "shelves", required = false) Integer shelves,
             @RequestParam(value = "sales_num", required = false) Integer sales_num,
             @RequestParam(value = "collection_num", required = false) Integer collection_num,
-            @RequestParam(value = "sort_whight", required = false) Integer sort_whight) {
+            @RequestParam(value = "sort_whight", required = false) Integer sort_whight,
+            @RequestParam(value = "categories", required = false) Integer categories) {
 
         Product pr = new Product();
 
@@ -112,6 +115,7 @@ public class ProductApi {
         pr.setSalesNum(sales_num);
         pr.setCollectionNum(collection_num);
         pr.setSortWhight(sort_whight);
+        pr.setCategories(categories);
         return prod.updateByPrimaryKeySelective(pr);
     }
 

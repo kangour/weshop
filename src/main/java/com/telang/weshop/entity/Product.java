@@ -23,7 +23,17 @@ public class Product {
 
     private Date addTime;
 
-    public Integer getId() {
+    private Integer Categories;
+    
+    public Integer getCategories() {
+		return Categories;
+	}
+
+	public void setCategories(Integer categories) {
+		Categories = categories;
+	}
+
+	public Integer getId() {
         return id;
     }
 
