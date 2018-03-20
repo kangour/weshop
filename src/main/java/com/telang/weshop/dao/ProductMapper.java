@@ -23,4 +23,6 @@ public interface ProductMapper {
 
     ProductDetail[] selectDetailAll();
 
+    ProductDetail[] selectDetailByKey(String key);
+
 }

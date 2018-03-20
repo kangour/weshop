@@ -30,33 +30,55 @@
 		<result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, title, main_image, price, stock, shelves, sales_num, collection_num,
+		id, title, main_image, price, stock, shelves, sales_num,
+		collection_num,
 		sort_whight,
 		add_time,categories
 	</sql>
+	<sql id="Product_Detai_List">
+		a.id, title,
+		main_image, price, stock, shelves, sales_num,
+		collection_num,
+		sort_whight,
+		a.add_time,b.name,c.image
+	</sql>
+
+
+
+	<!-- 根据关键字 查询所有商品详细信息（包括图片地址和分类名） -->
+	<select id="selectDetailByKey" parameterType="java.lang.String"
+		resultMap="ProductDetailMap">
+		select
+		<include refid="Product_Detai_List" />
+		from product a,category
+		b,product_images c where a.categories=b.id
+		and a.main_image = c.id and a.title like CONCAT('%',#{key,jdbcType=VARCHAR},'%')
+		ORDER BY sort_whight DESC
+	</select>
+
 
 	<!-- 查询所有商品详细信息（包括图片地址和分类名） -->
 	<select id="selectDetailById" parameterType="java.lang.Integer"
 		resultMap="ProductDetailMap">
 		select
-		a.id, title,
-		main_image, price, stock, shelves, sales_num, collection_num,
-		sort_whight,
-		a.add_time,b.name,c.image from product a,category
+		<include refid="Product_Detai_List" />
+		from product a,category
 		b,product_images c where a.categories=b.id
-		and a.main_image = c.id
+		and
+		a.main_image = c.id
 		and a.id = #{id,jdbcType=INTEGER}
+
 	</select>
 
 	<!-- 查询所有商品详细信息（包括图片地址和分类名） -->
 	<select id="selectDetailAll" resultMap="ProductDetailMap">
 		select
-		a.id, title,
-		main_image, price, stock, shelves, sales_num, collection_num,
-		sort_whight,
-		a.add_time,b.name,c.image from product a,category
+		<include refid="Product_Detai_List" />
+		from product a,category
 		b,product_images c where a.categories=b.id
-		and a.main_image = c.id
+		and
+		a.main_image = c.id
+		ORDER BY sort_whight DESC
 	</select>
 
 
@@ -75,18 +97,24 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from product
+		delete from
+		product
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.telang.weshop.entity.Product">
-		insert into product (id, title, main_image,
+		insert into product (id,
+		title, main_image,
 		price, stock, shelves,
-		sales_num, collection_num, sort_whight,
+		sales_num, collection_num,
+		sort_whight,
 		add_time)
-		values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+		values (#{id,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR},
 		#{mainImage,jdbcType=INTEGER},
-		#{price,jdbcType=DOUBLE}, #{stock,jdbcType=INTEGER}, #{shelves,jdbcType=INTEGER},
-		#{salesNum,jdbcType=INTEGER}, #{collectionNum,jdbcType=INTEGER},
+		#{price,jdbcType=DOUBLE}, #{stock,jdbcType=INTEGER},
+		#{shelves,jdbcType=INTEGER},
+		#{salesNum,jdbcType=INTEGER},
+		#{collectionNum,jdbcType=INTEGER},
 		#{sortWhight,jdbcType=INTEGER},
 		#{addTime,jdbcType=TIMESTAMP},
 		#{categories,jdbcType=INTEGER})
@@ -202,16 +230,23 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.telang.weshop.entity.Product">
 		update product
-		set title = #{title,jdbcType=VARCHAR},
-		main_image = #{mainImage,jdbcType=INTEGER},
+		set
+		title = #{title,jdbcType=VARCHAR},
+		main_image =
+		#{mainImage,jdbcType=INTEGER},
 		price = #{price,jdbcType=DOUBLE},
-		stock = #{stock,jdbcType=INTEGER},
+		stock =
+		#{stock,jdbcType=INTEGER},
 		shelves = #{shelves,jdbcType=INTEGER},
 		sales_num = #{salesNum,jdbcType=INTEGER},
-		collection_num = #{collectionNum,jdbcType=INTEGER},
-		sort_whight = #{sortWhight,jdbcType=INTEGER},
-		add_time = #{addTime,jdbcType=TIMESTAMP},
-		categories = #{categories,jdbcType=INTEGER}
+		collection_num =
+		#{collectionNum,jdbcType=INTEGER},
+		sort_whight =
+		#{sortWhight,jdbcType=INTEGER},
+		add_time =
+		#{addTime,jdbcType=TIMESTAMP},
+		categories =
+		#{categories,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 </mapper>

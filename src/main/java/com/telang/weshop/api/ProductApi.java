@@ -68,7 +68,7 @@ public class ProductApi {
      * 通过id获取信息
      * 
      * @param id
-     * @return 返回一个对象，springboot会自动转换为json字符串。
+     * @return 
      */
 
     @RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
@@ -92,7 +92,7 @@ public class ProductApi {
      * 根据产品id查询详细信息（包括图片地址和分类名）
      * 
      * @param id
-     * @return 返回一个对象
+     * @return 
      */
 
     @RequestMapping(value = "/api/v1/get/product/id/detail", method = RequestMethod.GET)
@@ -100,7 +100,6 @@ public class ProductApi {
 
         return prod.selectDetailById(id);
     }
-
     /***
      * 查询所有商品详细信息（包括图片地址和分类名）
      * 
@@ -110,6 +109,19 @@ public class ProductApi {
     public ProductDetail[] selectDetailAll() {
 
         return prod.selectDetailAll();
+    }
+
+    /***
+     * 根据关键字查询商品详情
+     * 
+     * @param id
+     * @return 
+     */
+
+    @RequestMapping(value = "/api/v1/get/product/key", method = RequestMethod.GET)
+    public ProductDetail[] selectByKey(@RequestParam(value = "key", required = false) String key) {
+
+        return prod.selectDetailByKey(key);
     }
 
     /***
