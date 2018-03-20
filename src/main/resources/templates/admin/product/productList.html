@@ -123,7 +123,11 @@
                  <td >{{product.collectioNum}}</td>  <!-- 收藏 -->
                 <td  v-if="product.shelves==1">上架 <i class="am-icon-check am-text-warning"></i> </td>    <!-- 上架/下架 -->
                 <td  v-else>下架 <i class="am-icon-close am-text-primary"></i></td>    <!-- 上架/下架 -->
-                <td >{{product.addTime}}</td>  <!--  时间 -->
+                <td >
+                    {{product.addTime.substr(0,4)+"年"
+                    +product.addTime.substr(5,2)+"月"
+                    +product.addTime.substr(8,2)+"日"}}
+                </td>  <!--  时间 -->
                 <td><div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <button class="am-btn am-btn-default am-btn-xs am-text-success am-round"><a  v-bind:href="['#?id='+product.id]"><span class="am-icon-search" title="查看商品详情"></span> </a></button>

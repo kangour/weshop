@@ -190,7 +190,10 @@
 							<td v-if="userinfo.status==1">正常</td><!--状态-->
 							<td v-else>锁定</td><!--状态-->
 							<td>{{userinfo.email}}</td><!--邮箱-->
-							<td>{{userinfo.regTime}}</td><!--注册时间-->
+							<td>{{userinfo.regTime.substr(0,4)+"年"
+								+userinfo.regTime.substr(5,2)+"月"
+								+userinfo.regTime.substr(8,2)+"日"}}
+							</td>
 							<td>{{userinfo.phone}}</td><!--手机-->
 							<td>
 							    <div class="am-btn-toolbar">
