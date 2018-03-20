@@ -12,7 +12,7 @@ public class OrderInfo {
 
     private Integer statusId;
 
-    private BigDecimal price;
+    private Double price;
 
     private Date time;
 
@@ -48,11 +48,11 @@ public class OrderInfo {
         this.statusId = statusId;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
