@@ -110,10 +110,11 @@ public class ProductApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/get/product/all/detail", method = RequestMethod.GET)
-    public ProductDetail[] selectDetailAll() {
-        
-        // 使用这种分页的方式，查询的语句必须跟在这句后边，否则会有线程安全问题
-        // PageHelper.startPage(2, 20);
+    public ProductDetail[] selectDetailAll(
+            @RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
+        int pageNum = 1;
+        // 使用分页插件
+        PageHelper.startPage(pageNum, 2);
         return prod.selectDetailAll();
     }
 
@@ -125,8 +126,11 @@ public class ProductApi {
      */
 
     @RequestMapping(value = "/api/v1/get/product/key", method = RequestMethod.GET)
-    public ProductDetail[] selectByKey(@RequestParam(value = "key", required = false) String key) {
-
+    public ProductDetail[] selectByKey(@RequestParam(value = "key", required = false) String key,
+            @RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
+        int pageNum = page;
+        // 使用分页插件
+        PageHelper.startPage(pageNum, 2);
         return prod.selectDetailByKey(key);
     }
 
