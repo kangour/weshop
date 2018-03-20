@@ -111,7 +111,8 @@ public class ProductApi {
      */
     @RequestMapping(value = "/api/v1/get/product/all/detail", method = RequestMethod.GET)
     public ProductDetail[] selectDetailAll() {
-
+        
+        // 使用这种分页的方式，查询的语句必须跟在这句后边，否则会有线程安全问题
         // PageHelper.startPage(2, 20);
         return prod.selectDetailAll();
     }
