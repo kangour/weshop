@@ -33,7 +33,7 @@ public class CategoryApi {
     }
 
     /***
-     * 根据用户名 获取所有信息
+     * 获取所有信息
      * 
      * @return
      */
