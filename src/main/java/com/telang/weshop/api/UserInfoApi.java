@@ -17,45 +17,49 @@ import com.telang.weshop.entity.UserInfo;
  */
 @RestController
 public class UserInfoApi {
-    //定义用户信息接口类对象
+    // 定义用户信息接口类对象
     @Autowired
-    private UserInfoMapper use; 
+    private UserInfoMapper use;
+
     /***
      * 获取用户列表
-     * @return  
+     * 
+     * @return
      */
-    @RequestMapping(value = "/api/v1/get/userinfo/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/get/user_info/all", method = RequestMethod.GET)
     public UserInfo[] GetAllUserInfo() {
-        
+
         return use.selectAll();
     }
-    
+
     /***
      * 按用户名获取用户信息
-     * @return  
+     * 
+     * @return
      */
-    @RequestMapping(value = "/api/v1/get/userinfo/username", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/get/user_info/username", method = RequestMethod.GET)
     UserInfo selectByUsername(String username) {
         return use.selectByUsername(username);
     }
-    
+
     /***
      * 根据id删除用户信息
      * 
      * @return
      */
-    @RequestMapping(value = "/api/v1/delete/userinfo/id", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/delete/user_info/id", method = RequestMethod.DELETE)
     public int DeleteUserInfoById(@RequestParam("id") Integer id) {
 
         return use.deleteByPrimaryKey(id);
     }
+
     /***
      * 插入一条用户信息记录
      * 
      * @param id
      * @return
      */
-    @RequestMapping(value = "/api/v1/post/userinfo/a", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/v1/post/user_info/a", method = RequestMethod.POST)
     public int PostUserInfo(@RequestParam(value = "id", required = false) Integer id,
             @RequestParam(value = "username", required = false) String username,
             @RequestParam(value = "password", required = false) String password,
@@ -64,8 +68,7 @@ public class UserInfoApi {
             @RequestParam(value = "address_id", required = false) Integer address_id,
             @RequestParam(value = "idcard", required = false) String idcard,
             @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "user_img", required = false) String user_img
-            ) {
+            @RequestParam(value = "user_img", required = false) String user_img) {
         UserInfo us = new UserInfo();
         us.setId(id);
         us.setUsername(username);
@@ -78,12 +81,13 @@ public class UserInfoApi {
         us.setUserImg(user_img);
         return use.insertSelective(us);
     }
+
     /***
      * 根据id修改用户信息
      * 
      * @return
      */
-    @RequestMapping(value = "/api/v1/patch/userinfo/id", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/api/v1/patch/user_info/id", method = RequestMethod.PATCH)
     public int PatchUserInfoById(@RequestParam(value = "id", required = false) Integer id,
             @RequestParam(value = "username", required = false) String username,
             @RequestParam(value = "password", required = false) String password,
@@ -92,8 +96,7 @@ public class UserInfoApi {
             @RequestParam(value = "address_id", required = false) Integer address_id,
             @RequestParam(value = "idcard", required = false) String idcard,
             @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "user_img", required = false) String user_img
-            ) {
+            @RequestParam(value = "user_img", required = false) String user_img) {
         UserInfo us = new UserInfo();
         us.setId(id);
         us.setUsername(username);
