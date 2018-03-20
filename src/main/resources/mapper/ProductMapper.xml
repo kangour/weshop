@@ -12,6 +12,7 @@
 		<result column="collection_num" jdbcType="INTEGER" property="collectionNum" />
 		<result column="sort_whight" jdbcType="INTEGER" property="sortWhight" />
 		<result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+		<result column="categories" jdbcType="TIMESTAMP" property="categories" />
 	</resultMap>
 
 	<!-- 商品详细信息结果集 -->
@@ -40,49 +41,47 @@
 		main_image, price, stock, shelves, sales_num,
 		collection_num,
 		sort_whight,
-		a.add_time,b.name,c.image
+		a.add_time,b.name,c.image from product
+		a,category
+		b,product_images c where a.categories=b.id
+		and
+		a.main_image =
+		c.id
 	</sql>
 
-
-
 	<!-- 根据关键字 查询所有商品详细信息（包括图片地址和分类名） -->
+
 	<select id="selectDetailByKey" parameterType="java.lang.String"
 		resultMap="ProductDetailMap">
 		select
 		<include refid="Product_Detai_List" />
-		from product a,category
-		b,product_images c where a.categories=b.id
-		and a.main_image = c.id and a.title like CONCAT('%',#{key,jdbcType=VARCHAR},'%')
-		ORDER BY sort_whight DESC
+		and a.title like
+		CONCAT('%',#{key,jdbcType=VARCHAR},'%')
+		ORDER BY
+		sort_whight DESC
 	</select>
 
 
 	<!-- 查询所有商品详细信息（包括图片地址和分类名） -->
+
 	<select id="selectDetailById" parameterType="java.lang.Integer"
 		resultMap="ProductDetailMap">
 		select
 		<include refid="Product_Detai_List" />
-		from product a,category
-		b,product_images c where a.categories=b.id
-		and
-		a.main_image = c.id
 		and a.id = #{id,jdbcType=INTEGER}
-
 	</select>
 
 	<!-- 查询所有商品详细信息（包括图片地址和分类名） -->
+
 	<select id="selectDetailAll" resultMap="ProductDetailMap">
 		select
 		<include refid="Product_Detai_List" />
-		from product a,category
-		b,product_images c where a.categories=b.id
-		and
-		a.main_image = c.id
 		ORDER BY sort_whight DESC
 	</select>
 
 
 	<!-- 查询所有商品数据 -->
+
 	<select id="selectAll" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -101,13 +100,14 @@
 		product
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
+	
 	<insert id="insert" parameterType="com.telang.weshop.entity.Product">
 		insert into product (id,
 		title, main_image,
 		price, stock, shelves,
 		sales_num, collection_num,
 		sort_whight,
-		add_time)
+		add_time,categories)
 		values (#{id,jdbcType=INTEGER},
 		#{title,jdbcType=VARCHAR},
 		#{mainImage,jdbcType=INTEGER},
