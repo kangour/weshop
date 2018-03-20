@@ -14,4 +14,8 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+	Address[] selectAll();
+
+	Address[] selectByUsername(String username);
 }

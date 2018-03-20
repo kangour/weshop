@@ -15,7 +15,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     id, title, main_image, price, stock, shelves, sales_num, collection_num, sort_whight, 
-    add_time
+    add_time,categories
   </sql>
   <!-- 查询所有商品数据 -->
   <select id="selectAll" resultMap="BaseResultMap">
@@ -42,7 +42,8 @@
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{mainImage,jdbcType=INTEGER}, 
       #{price,jdbcType=DOUBLE}, #{stock,jdbcType=INTEGER}, #{shelves,jdbcType=INTEGER}, 
       #{salesNum,jdbcType=INTEGER}, #{collectionNum,jdbcType=INTEGER}, #{sortWhight,jdbcType=INTEGER}, 
-      #{addTime,jdbcType=TIMESTAMP})
+      #{addTime,jdbcType=TIMESTAMP}, 
+      #{categories,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.telang.weshop.entity.Product">
     insert into product
@@ -77,6 +78,9 @@
       <if test="addTime != null">
         add_time,
       </if>
+      <if test="addTime != null">
+        categories,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -108,6 +112,9 @@
       </if>
       <if test="addTime != null">
         #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addTime != null">
+        #{categories,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -141,6 +148,9 @@
       <if test="addTime != null">
         add_time = #{addTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="addTime != null">
+        categories = #{categories,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -154,7 +164,8 @@
       sales_num = #{salesNum,jdbcType=INTEGER},
       collection_num = #{collectionNum,jdbcType=INTEGER},
       sort_whight = #{sortWhight,jdbcType=INTEGER},
-      add_time = #{addTime,jdbcType=TIMESTAMP}
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      categories = #{categories,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
