@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/admin/assets/css/admin.css">
 <script src="/admin/assets/js/jquery.min.js"></script>
 <script src="/admin/assets/js/app.js"></script>
+<!--  引入 Vue.js -->
+<script src="/admin/assets/js/vue.min.js"></script>
 </head>
 <body>
 	<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
@@ -32,8 +34,6 @@
 			</div>
 			<div class="am-popup-bd">
 				<form class="am-form tjlanmu">
-
-
 					<div class="am-form-group">
 						<div class="zuo">栏目名称：</div>
 						<div class="you">
@@ -86,41 +86,15 @@
 						</div>
 					</div>
 				</form>
-
-
-
-
-
-
-
-
-
-
-
-
 			</div>
-
-
-
 		</div>
-
-
-
-
-
 		<div class="am-popup am-popup-inner" id="my-popups">
-
 			<div class="am-popup-hd">
 				<h4 class="am-popup-title">修改栏目名称</h4>
 				<span data-am-modal-close class="am-close">&times;</span>
 			</div>
-
 			<div class="am-popup-bd">
-
-
 				<form class="am-form tjlanmu">
-
-
 					<div class="am-form-group">
 						<div class="zuo">栏目名称：</div>
 						<div class="you">
@@ -173,29 +147,8 @@
 						</div>
 					</div>
 				</form>
-
-
-
-
-
-
-
-
-
-
-
-
 			</div>
-
-
-
 		</div>
-
-
-
-
-
-
 		<div class="admin-biaogelist">
 
 			<div class="listbiaoti am-cf">
@@ -214,8 +167,7 @@
 			</div>
 
 			<form class="am-form am-g">
-				<table width="100%"
-					class="am-table am-table-bordered am-table-radius am-table-striped ">
+				<table id="userinfoList" width="100%" class="am-table am-table-bordered am-table-radius am-table-striped ">
 					<thead>
 						<tr class="am-success">
 							<th class="table-check"><input type="checkbox" /></th>
@@ -231,12 +183,39 @@
 					</thead>
 					
 					<tbody class="userinfolist">	
-						<!-- ajax动态添加用户信息 -->
+						<tr v-for="userinfo in userinfoList">
+							<td><input type="checkbox"/></td>
+							<td>15</td>
+							<td><a href="#">{{userinfo.username}}</a></td><!--用户名-->
+							<td v-if="userinfo.status==1">正常</td><!--状态-->
+							<td v-else>锁定</td><!--状态-->
+							<td>{{userinfo.email}}</td><!--邮箱-->
+							<td>{{userinfo.regTime}}</td><!--注册时间-->
+							<td>{{userinfo.phone}}</td><!--手机-->
+							<td>
+							    <div class="am-btn-toolbar">
+							        <div class="am-btn-group am-btn-group-xs">
+							            <button
+							                class="am-btn am-btn-default am-btn-xs am-text-success am-round">
+							                <span class="am-icon-search" title="查看会员详情"></span>
+							            </button>
+							            <button
+							                class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
+							                data-am-modal="{target: '#my-popups'}" title="修改会员">
+							                <span class="am-icon-pencil-square-o"></span>
+							            </button>
+							            <button
+							                class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
+							                title="删除会员">
+							                <span class="am-icon-trash-o"></span>
+							            </button>
+							        </div>
+							    </div>
+							</td>
+							</tr>
 					</tbody>
 				</table>
-
 				<div class="am-btn-group am-btn-group-xs">
-
 					<button type="button" class="am-btn am-btn-default">
 						<span class="am-icon-plus"></span> 新增
 					</button>
@@ -246,9 +225,7 @@
 					<button type="button" class="am-btn am-btn-default">
 						<span class="am-icon-save"></span> 保存
 					</button>
-
 				</div>
-
 				<ul class="am-pagination am-fr">
 					<li class="am-disabled"><a href="#">«</a></li>
 					<li class="am-active"><a href="#">1</a></li>
@@ -258,18 +235,12 @@
 					<li><a href="#">5</a></li>
 					<li><a href="#">»</a></li>
 				</ul>
-
-
-
-
 				<hr />
 				<p>注：.....</p>
 			</form>
 		</div>
-
 	</div>
-
-	<!--[if lt IE 9]>
+<!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/polyfill/rem.min.js"></script>
@@ -278,81 +249,43 @@
 <![endif]-->
 
 	<!--[if (gte IE 9)|!(IE)]><!-->
-	<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
 	<!--<![endif]-->
-<!-- 获取用户信息列表 -->
+<!-- 请求用户信息数据 -->
 <script type="text/javascript">
-/**
- *  js，用于页面发送ajax请求
- */
-getData();
-function getData() {
-    $.ajax({
-        url : "/api/v1/get/UserInfo/all",
-        type : "get",
-        dataType : "json",
-        data:{},
-        success : function(data) {
-            /* 执行成功后，弹出第一条数据的标题 */
-            alert(data[0].username);
-            var item;
-            $.each(data,function(i,result){
-            item = " <tr>"+
-            "<td><input type='checkbox'/></td>"+
-            "<td>"+result['id']+"</td>"+
-            "<td><a href='#'>"+result['username']+"</td>"+
-            "<td>"+result['status']+"</td>"+
-            "<td>"+result['email']+"</td>"+
-            "<td>"+result['regTime']+"</td>"+
-            "<td>"+result['phone']+"</td>"+
-            "<td><div class='am-btn-toolbar'><div class='am-btn-group am-btn-group-xs'>"+
-            "<button class='am-btn am-btn-default am-btn-xs am-text-success am-round'> <span class='am-icon-search' title='查看会员详情'></span></button>"+
-           "</div></div></td>"
-            "</tr>";
-            $('.userinfolist').append(item);
-            }); 
-            
-        }
-    });
-}
-/*
- *
- //原本表格样式请勿删除**********************************************
-<tr>
-<td><input type="checkbox" /></td>
-
-<td>15</td>
-<td><a href="#">Business management</a></td>
-<td>default</td>
-<td class="am-hide-sm-only"><i
-    class="am-icon-close am-text-primary"></i></td>
-<td class="am-hide-sm-only">访问</td>
-<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-<td>
-
-    <div class="am-btn-toolbar">
-        <div class="am-btn-group am-btn-group-xs">
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-success am-round">
-                <span class="am-icon-search" title="查看会员详情"></span>
-            </button>
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
-                data-am-modal="{target: '#my-popups'}" title="修改会员">
-                <span class="am-icon-pencil-square-o"></span>
-            </button>
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
-                title="删除会员">
-                <span class="am-icon-trash-o"></span>
-            </button>
-        </div>
-    </div>
-
-</td>
-</tr>
-原本表格样式请勿删除**********************************************
- */
+     var userinfoList=new Vue({
+    	  el:'#userinfoList',
+    	  data:{   
+    		  allchecked:false, //默认不全选
+        	  check:[],
+    		  userinfoList:[]  
+    		 }, 
+    		  created:function(){   
+    	    	var userinfo=this;
+    	    		 $.ajax({
+    	    			url:"/api/v1/get/user_info/all", //接口地址 获取所有商品
+    	    			type:"get",  //请求类型
+    	    			dataType:"json", //数据类型
+    	    			success:function(data){   //请求成功  
+    	    				console.log("接口数据请求成功");	    				
+    	    				userinfo.userinfoList=data;    
+    	    			},
+    	    			error : function(XMLHttpRequest, textStatus, errorThrown) {  //请求失败
+    	                    console.log("错误：接口请求失败了。");
+    	                    console.log("状态码："+XMLHttpRequest.status);
+    	                    console.log("准备状态："+XMLHttpRequest.readyState);
+    	                    console.log("文本状态："+textStatus);
+    	                }
+    	    			  
+    	    		  }); //end ajax 
+    	       },//end function
+    	    watch:{
+    	    	allchecked:function( nal) {	 	//全选 和取消全选
+    	   				this.check =nal    	   				
+    	   		}
+    	   	}  //end watch
+    	 
+     }) //end Vue
 </script>
 
 
