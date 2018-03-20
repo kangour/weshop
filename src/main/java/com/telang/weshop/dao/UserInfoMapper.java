@@ -12,6 +12,7 @@ public interface UserInfoMapper {
 
     UserInfo selectByPrimaryKey(Integer id);
 
+    //根据用户id去更新用户的信息
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
