@@ -1,6 +1,7 @@
 package com.telang.weshop.dao;
 
 import com.telang.weshop.entity.Product;
+import com.telang.weshop.entity.ProductDetail;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,5 +18,9 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    ProductDetail selectDetailById(Integer id);
+
+    ProductDetail[] selectDetailAll();
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
+import com.telang.weshop.entity.ProductDetail;
 
 /***
  * 产品相关api
@@ -85,6 +86,30 @@ public class ProductApi {
     public Product[] GetAllProduct() {
 
         return prod.selectAll();
+    }
+
+    /***
+     * 根据产品id查询详细信息（包括图片地址和分类名）
+     * 
+     * @param id
+     * @return 返回一个对象
+     */
+
+    @RequestMapping(value = "/api/v1/get/product/id/detail", method = RequestMethod.GET)
+    public ProductDetail selectDetailById(@RequestParam(value = "id", required = false) Integer id) {
+
+        return prod.selectDetailById(id);
+    }
+
+    /***
+     * 查询所有商品详细信息（包括图片地址和分类名）
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/api/v1/get/product/all/detail", method = RequestMethod.GET)
+    public ProductDetail[] selectDetailAll() {
+
+        return prod.selectDetailAll();
     }
 
     /***
