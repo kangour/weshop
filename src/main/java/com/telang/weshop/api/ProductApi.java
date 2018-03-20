@@ -1,11 +1,14 @@
 package com.telang.weshop.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
 import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
 import com.telang.weshop.entity.ProductDetail;
@@ -68,7 +71,7 @@ public class ProductApi {
      * 通过id获取信息
      * 
      * @param id
-     * @return 
+     * @return
      */
 
     @RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
@@ -92,7 +95,7 @@ public class ProductApi {
      * 根据产品id查询详细信息（包括图片地址和分类名）
      * 
      * @param id
-     * @return 
+     * @return
      */
 
     @RequestMapping(value = "/api/v1/get/product/id/detail", method = RequestMethod.GET)
@@ -100,6 +103,7 @@ public class ProductApi {
 
         return prod.selectDetailById(id);
     }
+
     /***
      * 查询所有商品详细信息（包括图片地址和分类名）
      * 
@@ -108,6 +112,7 @@ public class ProductApi {
     @RequestMapping(value = "/api/v1/get/product/all/detail", method = RequestMethod.GET)
     public ProductDetail[] selectDetailAll() {
 
+        // PageHelper.startPage(2, 20);
         return prod.selectDetailAll();
     }
 
@@ -115,7 +120,7 @@ public class ProductApi {
      * 根据关键字查询商品详情
      * 
      * @param id
-     * @return 
+     * @return
      */
 
     @RequestMapping(value = "/api/v1/get/product/key", method = RequestMethod.GET)
