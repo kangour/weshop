@@ -33,14 +33,24 @@ public class CartApi {
     }
 
     /***
-     * 根据用户名 获取所有信息
+     * 获取所有信息
      * 
      * @return
      */
     @RequestMapping(value = "/api/v1/get/cart/all", method = RequestMethod.GET)
+    public Cart[] GetAllCart() {
+
+        return cart.selectAll();
+    }
+    /***
+     * 根据用户名 获取所有信息
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/api/v1/get/cart/username", method = RequestMethod.GET)
     public Cart[] GetAllCart(@RequestParam(value = "username", required = false) String username) {
 
-        return cart.selectAll(username);
+        return cart.selectByUsername(username);
     }
 
     /***

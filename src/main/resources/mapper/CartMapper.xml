@@ -10,13 +10,19 @@
 	<sql id="Base_Column_List">
 		id, username, product_id, number
 	</sql>
-	<!-- 根据用户名获取购物车所有数据 -->
-	<select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from cart
-		where username = #{username,jdbcType=VARCHAR}
-	</select>
+    <!-- 根据用户名获取购物车所有数据 -->
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from cart
+        where username = #{username,jdbcType=VARCHAR}
+    </select>
+    <!-- 获取购物车所有数据 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from cart 
+    </select>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="BaseResultMap">
 		select

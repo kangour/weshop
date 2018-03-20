@@ -15,5 +15,7 @@ public interface CartMapper {
 
     int updateByPrimaryKey(Cart record);
 
-    Cart[] selectAll(String record);
+    Cart[] selectAll();
+    
+    Cart[] selectByUsername(String record);
 }
