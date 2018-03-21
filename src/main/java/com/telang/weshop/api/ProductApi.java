@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
 import com.telang.weshop.dao.ProductMapper;
 import com.telang.weshop.entity.Product;
 import com.telang.weshop.entity.ProductDetail;
@@ -78,6 +79,16 @@ public class ProductApi {
 	}
 
 	/***
+	 * 获取所有信息
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
+	public Product[] GetAllProduct() {
+		PageHelper.startPage(1, 1);
+		return prod.selectAll();
+	}
+	/***
 	 * 通过id获取信息产品详细信息（包括图片地址和分类文字）
 	 * 
 	 * @param id
@@ -101,16 +112,6 @@ public class ProductApi {
 		return prod.selectAllDetail();
 	}
 
-	/***
-	 * 获取所有信息
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
-	public Product[] GetAllProduct() {
-
-		return prod.selectAll();
-	}
 
 	/***
 	 * 根据id修改信息
