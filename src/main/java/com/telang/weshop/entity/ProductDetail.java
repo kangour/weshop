@@ -34,7 +34,7 @@ public class ProductDetail {
 		return addTime;
 	}
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+//	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
 	}
