@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Article {
     private Integer id;
 
@@ -30,7 +32,7 @@ public class Article {
     public void setArticleTitle(String articleTitle) {
         this.articleTitle = articleTitle == null ? null : articleTitle.trim();
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getPublishTime() {
         return publishTime;
     }
