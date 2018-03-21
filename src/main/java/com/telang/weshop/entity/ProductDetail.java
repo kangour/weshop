@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ProductDetail {
@@ -24,11 +26,15 @@ public class ProductDetail {
 	private Integer collectionNum;
 
 	private Integer sortWhight;
+	
 	private Date addTime;
+	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")  
 	public Date getAddTime() {
 		return addTime;
 	}
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
 	}
