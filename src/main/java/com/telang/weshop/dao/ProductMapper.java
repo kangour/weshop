@@ -1,5 +1,6 @@
 package com.telang.weshop.dao;
 
+
 import com.telang.weshop.entity.Product;
 import com.telang.weshop.entity.ProductDetail;
 
@@ -19,10 +20,10 @@ public interface ProductMapper {
 
     int updateByPrimaryKey(Product record);
 
-    ProductDetail selectDetailById(Integer id);
+	ProductDetail selectDetailById(Integer id);
 
-    ProductDetail[] selectDetailAll();
+	ProductDetail[] selectAllDetail();
 
-    ProductDetail[] selectDetailByKey(String key);
+	ProductDetail[] selectAllDetail(String key);
 
 }

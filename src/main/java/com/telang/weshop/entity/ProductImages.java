@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductImages {
     private Integer id;
 
@@ -34,7 +36,7 @@ public class ProductImages {
     public void setImage(String image) {
         this.image = image == null ? null : image.trim();
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getAddTime() {
         return addTime;
     }

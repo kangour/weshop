@@ -2,113 +2,120 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductDetail {
-    private Integer id;
+	private Integer id;
 
-    private String title;
+	private String title;
+	// 产品主图
+	private String image;
+	// 分类名称
+	private String category;
 
-    private String mainImage;
-    
-    private String category;
+	private Double price;
 
-    private Double price;
+	private Integer stock;
 
-    private Integer stock;
+	private Integer shelves;
 
-    private Integer shelves;
+	private Integer salesNum;
 
-    private Integer salesNum;
+	private Integer collectionNum;
 
-    private Integer collectionNum;
+	private Integer sortWhight;
+	
+	private Date addTime;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")  
+	public Date getAddTime() {
+		return addTime;
+	}
+	
+//	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
+	public String getImage() {
+		return image;
+	}
 
-    private Integer sortWhight;
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-    private Date addTime;
-  
+	public String getName() {
+		return category;
+	}
+
+	public void setName(String category) {
+		this.category = category;
+	}
+
 	public Integer getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    } 
-    public Double getPrice() {
-        return price;
-    } 
+	public void setTitle(String title) {
+		this.title = title == null ? null : title.trim();
+	}
 
-    public String getMainImage() {
-        return mainImage;
-    }
+	public Double getPrice() {
+		return price;
+	}
 
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public String getCategory() {
-        return category;
-    }
+	public Integer getStock() {
+		return stock;
+	}
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public Integer getShelves() {
+		return shelves;
+	}
 
-    public Integer getStock() {
-        return stock;
-    }
+	public void setShelves(Integer shelves) {
+		this.shelves = shelves;
+	}
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
+	public Integer getSalesNum() {
+		return salesNum;
+	}
 
-    public Integer getShelves() {
-        return shelves;
-    }
+	public void setSalesNum(Integer salesNum) {
+		this.salesNum = salesNum;
+	}
 
-    public void setShelves(Integer shelves) {
-        this.shelves = shelves;
-    }
+	public Integer getCollectionNum() {
+		return collectionNum;
+	}
 
-    public Integer getSalesNum() {
-        return salesNum;
-    }
+	public void setCollectionNum(Integer collectionNum) {
+		this.collectionNum = collectionNum;
+	}
 
-    public void setSalesNum(Integer salesNum) {
-        this.salesNum = salesNum;
-    }
+	public Integer getSortWhight() {
+		return sortWhight;
+	}
 
-    public Integer getCollectionNum() {
-        return collectionNum;
-    }
+	public void setSortWhight(Integer sortWhight) {
+		this.sortWhight = sortWhight;
+	}
 
-    public void setCollectionNum(Integer collectionNum) {
-        this.collectionNum = collectionNum;
-    }
-
-    public Integer getSortWhight() {
-        return sortWhight;
-    }
-
-    public void setSortWhight(Integer sortWhight) {
-        this.sortWhight = sortWhight;
-    }
-
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
 }

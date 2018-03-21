@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class AdminInfo {
     private Integer id;
 
@@ -66,7 +68,7 @@ public class AdminInfo {
     public void setUserImg(String userImg) {
         this.userImg = userImg == null ? null : userImg.trim();
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getRegTime() {
         return regTime;
     }

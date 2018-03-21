@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class UserInfo {
     private Integer id;
 
@@ -46,7 +48,7 @@ public class UserInfo {
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getRegTime() {
         return regTime;
     }

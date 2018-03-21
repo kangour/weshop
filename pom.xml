@@ -27,6 +27,13 @@
 	<!-- dependencies 中有所有依赖包的配置位置 -->
 	<!--dependency 是包含某类包的依赖，通过其中的包名导包 -->
 	<dependencies>
+		<!-- springboot分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+
 		<!-- 导入web依赖包，tomcat就在其中 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,14 +51,6 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.2.0</version>
 		</dependency>
-
-		<!-- springboot分页插件 -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>3.6.3</version>
-		</dependency>
-
 		<!-- 添加 MySQL驱动包 -->
 		<dependency>
 			<groupId>mysql</groupId>

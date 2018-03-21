@@ -20,10 +20,11 @@
 	getData()
 	function getData() {
 		$.ajax({
-			url : "/api/v1/get/product/all",
-			type : "get",
+			url : "/api/v1/post/product/a",
+			type : "post",
 			dataType : "json",
-			data : { 
+			data : {
+                title : '霸王剃须刀' 
 			},
 			success : function(data) {
 				/* 执行成功后，弹出第一条数据的标题 */

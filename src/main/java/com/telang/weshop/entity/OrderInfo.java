@@ -3,6 +3,8 @@ package com.telang.weshop.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class OrderInfo {
     private Integer id;
 
@@ -55,7 +57,7 @@ public class OrderInfo {
     public void setPrice(Double price) {
         this.price = price;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getTime() {
         return time;
     }
