@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageHelper;
 import com.telang.weshop.dao.OrderInfoMapper;
 import com.telang.weshop.entity.OrderInfo;
 
@@ -25,8 +26,11 @@ public class OrderApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/get/order_info/all", method = RequestMethod.GET)
-    public OrderInfo[] GetAllOrderInfo() {
-
+    public OrderInfo[] GetAllOrderInfo(
+    		@RequestParam(value = "page_now", required = false, defaultValue = "1") Integer page_now,
+			@RequestParam(value = "page_size", required = false, defaultValue = "20") Integer page_size) {
+		
+		PageHelper.startPage(page_now, page_size);
         return order.selectAll();
     }
     
