@@ -25,14 +25,14 @@ public class Product {
 
     private Date addTime;
 
-    private Integer Categories;
+    private Integer categories;
     
     public Integer getCategories() {
-		return Categories;
+		return categories;
 	}
 
 	public void setCategories(Integer categories) {
-		Categories = categories;
+		this.categories = categories;
 	}
 
 	public Integer getId() {
