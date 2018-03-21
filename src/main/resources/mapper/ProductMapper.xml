@@ -12,6 +12,7 @@
 		<result column="collection_num" jdbcType="INTEGER" property="collectionNum" />
 		<result column="sort_whight" jdbcType="INTEGER" property="sortWhight" />
 		<result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+		<result column="categories" jdbcType="INTEGER" property="categories" />
 	</resultMap>
 	<!-- 商品 数据Map（包括图片地址、分类名称） -->
 	<resultMap id="ProductDetailMap" type="com.telang.weshop.entity.ProductDetail">
@@ -93,7 +94,8 @@
 		price, stock, shelves,
 		sales_num, collection_num,
 		sort_whight,
-		add_time)
+		add_time,
+		categories)
 		values (#{id,jdbcType=INTEGER},
 		#{title,jdbcType=VARCHAR},
 		#{mainImage,jdbcType=INTEGER},
@@ -138,7 +140,7 @@
 			<if test="addTime != null">
 				add_time,
 			</if>
-			<if test="addTime != null">
+			<if test="categories != null">
 				categories,
 			</if>
 		</trim>
@@ -173,7 +175,7 @@
 			<if test="addTime != null">
 				#{addTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="addTime != null">
+			<if test="categories != null">
 				#{categories,jdbcType=INTEGER},
 			</if>
 		</trim>
