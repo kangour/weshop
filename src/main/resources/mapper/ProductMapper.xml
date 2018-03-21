@@ -86,6 +86,8 @@
 		select
 		<include refid="Base_Column_List" />
 		from product
+		ORDER BY
+		sort_whight DESC
 	</select>
 
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
