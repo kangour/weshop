@@ -22,7 +22,7 @@ public class FileUpload {
 	@Value("${filePath}") // 路径在配置文件中配置
 	String filePath; // 文件上传路径
 	@RequestMapping(value = "/fileupload", method = RequestMethod.POST)
-	public @ResponseBody String uploadImg(HttpServletRequest request) {  
+	public @ResponseBody void uploadImg(HttpServletRequest request) {  
 		
 		// String string =request.getParameter("");
 		MultipartFile file=((MultipartHttpServletRequest) request).getFile("file");	//获取文件参数	 
@@ -34,12 +34,12 @@ public class FileUpload {
 		System.out.println("文件存放路径：" +filePath);
 		try {
 			uploadFile(file.getBytes(), filePath, fileName); //调用文件上传方法
-			System.out.println("上传成功");
-			  String img=" <img src=\""+fileName+"\"/>"; // 图片
-			return img+"</br>上传成功</br>" + "文件类型：" + contentType + "</br>文件名称：" + fileName + "</br>文件存放路径：" + filePath;
+		//	System.out.println("上传成功");
+		//	  String img=" <img src=\""+fileName+"\"/>"; // 图片
+			//return img+"</br>上传成功</br>" + "文件类型：" + contentType + "</br>文件名称：" + fileName + "</br>文件存放路径：" + filePath;
 		} catch (Exception e) {
 			System.out.println("上传失败：" + e.getMessage());
-			return "上传失败：" + e.getMessage();
+			//return "上传失败：" + e.getMessage();
 
 		}
 	}

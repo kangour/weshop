@@ -20,6 +20,9 @@
 		<script type="text/javascript" src="../js/jquery.imagezoom.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.flexslider.js"></script>
 		<script type="text/javascript" src="../js/list.js"></script>
+		
+				<!--  引入 Vue.js -->
+<script src="/admin/assets/js/vue.min.js"></script>
 
 	</head>
 
@@ -74,7 +77,7 @@
 
 				<!--放大镜-->
 
-				<div class="item-inform">
+				<div  id="introduction" class="item-inform">
 					<div class="clearfixLeft" id="clearcontent">
 
 						<div class="box">
@@ -90,22 +93,22 @@
 							</script>
 
 							<div class="tb-booth tb-pic tb-s310">
-								<a href="../images/01.jpg"><img src="../images/01_mid.jpg" alt="细节展示放大镜特效" rel="../images/01.jpg" class="jqzoom" /></a>
+								<a :href="'/'+introduction.mainImage"><img :src="'/'+introduction.mainImage" alt="细节展示放大镜特效" :rel="'/'+introduction.mainImage" class="jqzoom" /></a>
 							</div>
 							<ul class="tb-thumb" id="thumblist">
 								<li class="tb-selected">
 									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/01_small.jpg" mid="../images/01_mid.jpg" big="../images/01.jpg"></a>
+										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
 									</div>
 								</li>
 								<li>
 									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/02_small.jpg" mid="../images/02_mid.jpg" big="../images/02.jpg"></a>
+										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
 									</div>
 								</li>
 								<li>
 									<div class="tb-pic tb-s40">
-										<a href="#"><img src="../images/03_small.jpg" mid="../images/03_mid.jpg" big="../images/03.jpg"></a>
+										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
 									</div>
 								</li>
 							</ul>
@@ -120,7 +123,7 @@
 						<!--名称-->
 						<div class="tb-detail-hd">
 							<h1>	
-				 良品铺子 手剥松子218g 坚果炒货 巴西松子
+				{{introduction.title}}
 	          </h1>
 						</div>
 						<div class="tb-detail-list">
@@ -128,11 +131,11 @@
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>                                 
+									<dd><em>¥</em><b class="sys_item_price">{{introduction.price}}</b>  </dd>                                 
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
-									<dd><em>¥</em><b class="sys_item_mktprice">98.00</b></dd>									
+									<dd><em>¥</em><b class="sys_item_mktprice">{{introduction.price}}</b></dd>									
 								</li>
 								<div class="clear"></div>
 							</div>
@@ -168,7 +171,7 @@
 									<div class="tm-indcon"><span class="tm-label">月销量</span><span class="tm-count">1015</span></div>
 								</li>
 								<li class="tm-ind-item tm-ind-sumCount canClick">
-									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count">6015</span></div>
+									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count">{{introduction.salesNum}}</span></div>
 								</li>
 								<li class="tm-ind-item tm-ind-reviewCount canClick tm-line3">
 									<div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">640</span></div>
@@ -217,7 +220,7 @@
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
 															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
-															<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+															<span id="Stock" class="tb-hidden">库存<span class="stock">{{introduction.stock}}</span>件</span>
 														</dd>
 
 													</div>
@@ -1283,5 +1286,60 @@
 								</p>
 							</div>   
                  </div> 
+                 
+                 
+                 
+                 <!-- 请求数据 -->
+
+<script type="text/javascript">
+
+ var productList=new Vue({
+	  el:'#introduction',    	 
+	  data:{  
+		  introduction:{}  
+		 }, 
+		  created:function(){   
+	    	//var product=this;    	    	 
+	    		 $.ajax({
+	    		    url:"/api/v1/get/product/id/detail?id=37", //接口地址 获取所商品详情
+	    			type:"get",  //请求类型
+	    			dataType:"json", //数据类型	    			
+	    			success:function(data){   //请求成功    	    				
+	    				productList.introduction=data; 	    			
+	    			},
+	    			error : function(XMLHttpRequest, textStatus, errorThrown) {  //请求失败
+	    				alert("数据请求失败");
+	    				console.log("错误：接口请求失败了。");
+	                    console.log("状态码："+XMLHttpRequest.status);
+	                    console.log("准备状态："+XMLHttpRequest.readyState);
+	                    console.log("文本状态："+textStatus);
+	                }
+	    			  
+   		  }); //end ajax 
+	 }//end function
+	
+}) //end Vue 
+</script>
+                 
+                 
+<!--  <script type="text/javascript"> 
+ 
+ window.onload = function(){
+	 
+	// alert(getQueryVariable("id")); //获取商品id
+	 
+ }
+ function getQueryVariable(variable)
+      {	   
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+   };
+
+</script>  -->                
 
 </html>

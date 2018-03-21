@@ -41,7 +41,8 @@
 		main_image, price, stock, shelves, sales_num,
 		collection_num,
 		sort_whight,
-		a.add_time,b.name,c.image from product
+		a.add_time,
+		b.name,c.image from product
 		a,category
 		b,product_images c where a.categories=b.id
 		and
@@ -109,7 +110,8 @@
 		price, stock, shelves,
 		sales_num, collection_num,
 		sort_whight,
-		add_time,categories)
+		add_time,
+		categories)
 		values (#{id,jdbcType=INTEGER},
 		#{title,jdbcType=VARCHAR},
 		#{mainImage,jdbcType=INTEGER},

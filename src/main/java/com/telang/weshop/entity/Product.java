@@ -2,6 +2,8 @@ package com.telang.weshop.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Product {
     private Integer id;
 
@@ -104,7 +106,7 @@ public class Product {
     public void setSortWhight(Integer sortWhight) {
         this.sortWhight = sortWhight;
     }
-
+    
     public Date getAddTime() {
         return addTime;
     }
