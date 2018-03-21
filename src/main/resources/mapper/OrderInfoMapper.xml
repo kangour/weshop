@@ -1,110 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.telang.weshop.dao.OrderInfoMapper">
-  <resultMap id="BaseResultMap" type="com.telang.weshop.entity.OrderInfo">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="status_id" jdbcType="INTEGER" property="statusId" />
-    <result column="price" jdbcType="DOUBLE" property="price" />
-    <result column="time" jdbcType="TIMESTAMP" property="time" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, product_id, user_id, status_id, price, time
-  </sql>
-  <!-- 查询所有订单信息 -->
-  <select id="selectAll" resultMap="BaseResultMap">
-    select * from order_info
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from order_info
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order_info
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.telang.weshop.entity.OrderInfo">
-    insert into order_info (id, product_id, user_id, 
-      status_id, price, time
-      )
-    values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{statusId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{time,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.telang.weshop.entity.OrderInfo">
-    insert into order_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="productId != null">
-        product_id,
-      </if>
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="statusId != null">
-        status_id,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-      <if test="time != null">
-        time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="productId != null">
-        #{productId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="statusId != null">
-        #{statusId,jdbcType=INTEGER},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="time != null">
-        #{time,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.telang.weshop.entity.OrderInfo">
-    update order_info
-    <set>
-      <if test="productId != null">
-        product_id = #{productId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="statusId != null">
-        status_id = #{statusId,jdbcType=INTEGER},
-      </if>
-      <if test="price != null">
-        price = #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="time != null">
-        time = #{time,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.telang.weshop.entity.OrderInfo">
-    update order_info
-    set product_id = #{productId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      status_id = #{statusId,jdbcType=INTEGER},
-      price = #{price,jdbcType=DOUBLE},
-      time = #{time,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+	<resultMap id="BaseResultMap" type="com.telang.weshop.entity.OrderInfo">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="product_id" jdbcType="INTEGER" property="productId" />
+		<result column="user_id" jdbcType="INTEGER" property="userId" />
+		<result column="status_id" jdbcType="INTEGER" property="statusId" />
+		<result column="price" jdbcType="DOUBLE" property="price" />
+		<result column="time" jdbcType="TIMESTAMP" property="time" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="username" jdbcType="VARCHAR" property="userName" />
+		<result column="accept_name" jdbcType="VARCHAR" property="acceptName" />
+		<result column="accept_region" jdbcType="VARCHAR" property="acceptRegion" />
+		<result column="street_address" jdbcType="VARCHAR" property="streetAddress" />
+		<result column="phone_number" jdbcType="CHAR" property="phoneNumber" />
+		<result column="zipcode" jdbcType="CHAR" property="zipcode" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="product_num" jdbcType="INTEGER" property="productNum" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, product_id, user_id, status_id, price, time
+	</sql>
+
+	<sql id="Order_Detai_List">		
+		a.id ,
+		a.time,
+		a.user_id,
+		a.product_id,
+		a.product_num,
+		a.price,
+		b.status_id,
+		b.status,
+		c.title,
+		d.accept_name,
+		d.accept_region,
+		d.street_address,
+		d.phone_number,
+		d.zipcode,
+		e.username
+		from
+		order_info a,
+		order_status b,
+		product c,
+		address d,
+		user_info e
+		where
+		a.status_id=b.status_id
+		and a.product_id=c.id
+		and a.user_id=e.id
+		and	e.address_id=d.id
+	</sql>
+	<!-- 查询订单详细信息 -->
+	<select id="selectAll" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Order_Detai_List" />
+	</select>
+
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from order_info
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		order_info
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.telang.weshop.entity.OrderInfo">
+		insert into order_info (id,
+		product_id, user_id,
+		status_id, price, time
+		)
+		values
+		(#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER},
+		#{userId,jdbcType=INTEGER},
+		#{statusId,jdbcType=INTEGER},
+		#{price,jdbcType=DOUBLE}, #{time,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.telang.weshop.entity.OrderInfo">
+		insert into order_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="productId != null">
+				product_id,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="statusId != null">
+				status_id,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="time != null">
+				time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="productId != null">
+				#{productId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="statusId != null">
+				#{statusId,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DOUBLE},
+			</if>
+			<if test="time != null">
+				#{time,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.telang.weshop.entity.OrderInfo">
+		update order_info
+		<set>
+			<if test="productId != null">
+				product_id = #{productId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=INTEGER},
+			</if>
+			<if test="statusId != null">
+				status_id = #{statusId,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DOUBLE},
+			</if>
+			<if test="time != null">
+				time = #{time,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.telang.weshop.entity.OrderInfo">
+		update order_info
+		set product_id = #{productId,jdbcType=INTEGER},
+		user_id =
+		#{userId,jdbcType=INTEGER},
+		status_id = #{statusId,jdbcType=INTEGER},
+		price = #{price,jdbcType=DOUBLE},
+		time = #{time,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 </mapper>

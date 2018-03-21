@@ -1,24 +1,112 @@
 package com.telang.weshop.entity;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class OrderInfo {
-    private Integer id;
+    private Integer id;  //订单id
 
-    private Integer productId;
+    private Integer productId; //商品id 
 
-    private Integer userId;
+    private Integer userId;//用户id
 
-    private Integer statusId;
+    private Integer statusId; //状态id
 
-    private Double price;
+    private Double price;//订单总价
 
-    private Date time;
+    private Date time; //订单时间
 
-    public Integer getId() {
+    private String status; //订单状态
+    private String userName; //用户名
+    private String acceptName; //收件人信息
+    private String acceptRegion;//收货地址
+    private String streetAddress; //收货纤细地址
+    private String phoneNumber; //联系电话
+    private String zipcode; //邮政编码
+    private String title; //商品名称
+    private Integer productNum;//商品数量
+    
+    
+    
+    
+
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getAcceptName() {
+		return acceptName;
+	}
+
+	public void setAcceptName(String acceptName) {
+		this.acceptName = acceptName;
+	}
+
+	public String getAcceptRegion() {
+		return acceptRegion;
+	}
+
+	public void setAcceptRegion(String acceptRegion) {
+		this.acceptRegion = acceptRegion;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getProductNum() {
+		return productNum;
+	}
+
+	public void setProductNum(Integer productNum) {
+		this.productNum = productNum;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	
+
+	public Integer getId() {
         return id;
     }
 
