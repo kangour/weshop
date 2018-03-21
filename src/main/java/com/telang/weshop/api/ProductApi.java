@@ -69,7 +69,7 @@ public class ProductApi {
 	 * 通过id获取信息
 	 * 
 	 * @param id
-	 * @return 返回一个对象，springboot会自动转换为json字符串。
+	 * @return
 	 */
 
 	@RequestMapping(value = "/api/v1/get/product/id", method = RequestMethod.GET)
@@ -84,10 +84,8 @@ public class ProductApi {
 	 * @return
 	 */
 	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
-	public Product[] GetAllProduct(
-			@RequestParam(value = "page_now", required = false, defaultValue = "1") Integer page_now,
-			@RequestParam(value = "page_size", required = false, defaultValue = "20") Integer page_size) {
-		PageHelper.startPage(page_now, page_size);
+	public Product[] GetAllProduct() {
+
 		return prod.selectAll();
 	}
 
@@ -104,15 +102,20 @@ public class ProductApi {
 	}
 
 	/***
-	 * 通过id获取信息产品详细信息（包括图片地址和分类文字）
+	 * 获取所有产品详细信息（包括图片地址和分类文字）
+	 * 根据关键 获取所有产品详细信息（包括图片地址和分类文字）
 	 * 
-	 * @param id
+	 * @param
 	 * @return
 	 */
 	@RequestMapping(value = "/api/v1/get/product/all/detail", method = RequestMethod.GET)
-	public ProductDetail[] GetProductDetailById() {
-
-		return prod.selectAllDetail();
+	public ProductDetail[] GetProductDetail(
+			@RequestParam(value = "key", required = false, defaultValue = "") String key,
+			@RequestParam(value = "page_now", required = false, defaultValue = "1") Integer page_now,
+			@RequestParam(value = "page_size", required = false, defaultValue = "20") Integer page_size) {
+		
+		PageHelper.startPage(page_now, page_size);
+		return prod.selectAllDetail(key);
 	}
 
 	/***

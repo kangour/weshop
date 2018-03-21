@@ -33,27 +33,41 @@
 		sort_whight,
 		add_time,categories
 	</sql>
-	<!-- 根据id查询 商品详细数据（包括图片地址、分类名称） -->
+	<sql id="Product_Detai_List">
+		a.id, title,
+		main_image, price, stock, shelves, sales_num,
+		collection_num,
+		sort_whight,
+		a.add_time,b.name,c.image from product
+		a,category
+		b,product_images c where a.categories=b.id
+		and
+		a.main_image =
+		c.id
+	</sql>
+
+	<!-- 根据关键字 查询所有商品详细信息（包括图片地址和分类名） -->
+
+	<select id="selectAllDetail" parameterType="java.lang.String"
+		resultMap="ProductDetailMap">
+		select
+		<include refid="Product_Detai_List" />
+		and a.title like
+		CONCAT('%',#{key,jdbcType=VARCHAR},'%')
+		ORDER BY
+		sort_whight DESC
+	</select>
+
+
+	<!-- 查询所有商品详细信息（包括图片地址和分类名） -->
+
 	<select id="selectDetailById" parameterType="java.lang.Integer"
 		resultMap="ProductDetailMap">
-		select a.id, a.title, a.price, a.stock, a.shelves,
-		a.sales_num,
-		a.collection_num, a.sort_whight,
-		a.add_time,b.name,c.image
-		from product a,category b,product_images c where a.categories = b.id
-		and a.main_image = c.id
+		select
+		<include refid="Product_Detai_List" />
 		and a.id = #{id,jdbcType=INTEGER}
 	</select>
-	<!-- 查询所有商品详细数据（包括图片地址、分类名称） -->
-	<select id="selectAllDetail" resultMap="ProductDetailMap">
-		select a.id, a.title,
-		a.price, a.stock, a.shelves, a.sales_num,
-		a.collection_num,
-		a.sort_whight,
-		a.add_time,b.name,c.image from product a,category
-		b,product_images c where a.categories = b.id
-		and a.main_image = c.id
-	</select>
+ 
 	<!-- 查询所有商品数据 -->
 	<select id="selectAll" resultMap="BaseResultMap">
 		select
