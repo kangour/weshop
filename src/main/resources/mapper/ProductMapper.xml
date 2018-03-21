@@ -45,7 +45,7 @@
 		a.main_image =
 		c.id
 	</sql>
-
+ 
 	<!-- 根据关键字 查询所有商品详细信息（包括图片地址和分类名） -->
 
 	<select id="selectAllDetail" parameterType="java.lang.String"
@@ -67,7 +67,7 @@
 		<include refid="Product_Detai_List" />
 		and a.id = #{id,jdbcType=INTEGER}
 	</select>
- 
+
 	<!-- 查询所有商品数据 -->
 	<select id="selectAll" resultMap="BaseResultMap">
 		select
