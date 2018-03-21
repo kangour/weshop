@@ -106,6 +106,7 @@ public class Product {
     public void setSortWhight(Integer sortWhight) {
         this.sortWhight = sortWhight;
     }
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     public Date getAddTime() {
         return addTime;
