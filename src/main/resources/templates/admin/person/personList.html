@@ -7,269 +7,240 @@
 <meta name="description" content="这是一个 index 页面">
 <meta name="keywords" content="index">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="icon" type="image/png" href="assets/i/favicon.png">
 <link rel="apple-touch-icon-precomposed"
-	href="assets/i/app-icon72x72@2x.png">
+    href="assets/i/app-icon72x72@2x.png">
 <meta name="apple-mobile-web-app-title" content="Amaze UI" />
 <link rel="stylesheet" href="/admin/assets/css/amazeui.min.css" />
 <link rel="stylesheet" href="/admin/assets/css/admin.css">
 <script src="/admin/assets/js/jquery.min.js"></script>
 <script src="/admin/assets/js/app.js"></script>
+<!--  引入 Vue.js -->
+<script src="/admin/assets/js/vue.min.js"></script>
 </head>
 <body>
-	<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+    <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
 </head>
 
 <body>
-	<div class=" admin-content">
-		<div class="am-popup am-popup-inner" id="my-popup">
-			<div class="am-popup-hd">
-				<h4 class="am-popup-title">添加商品一级分类</h4>
-				<span data-am-modal-close class="am-close">&times;</span>
-			</div>
-			<div class="am-popup-bd">
-				<form class="am-form tjlanmu">
-
-
-					<div class="am-form-group">
-						<div class="zuo">栏目名称：</div>
-						<div class="you">
-							<input type="email" class="am-input-sm" id="doc-ipt-email-1"
-								placeholder="请输入标题">
-						</div>
-					</div>
-					<div class="am-form-group">
-						<div class="zuo">栏目关键词：</div>
-						<div class="you">
-							<input type="password" class="am-input-sm" id="doc-ipt-pwd-1"
-								placeholder="请输入关键词">
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">栏目描述：</div>
-						<div class="you">
-							<textarea class="" rows="2" id="doc-ta-1"></textarea>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">栏目图片：</div>
-						<div class="you" style="height: 45px;">
-							<input type="file" id="doc-ipt-file-1">
-							<p class="am-form-help">请选择要上传的文件...</p>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">简介：</div>
-						<div class="you">
-							<textarea class="" rows="2" id="doc-ta-1"></textarea>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">状态：</div>
-						<div class="you" style="margin-top: 3px;">
-							<label class="am-checkbox-inline"> <input type="checkbox"
-								value="option1"> 显示
-							</label> <label class="am-checkbox-inline"> <input
-								type="checkbox" value="option2"> 隐藏
-							</label>
-
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="you">
-							<p>
-								<button type="submit" class="am-btn am-btn-success am-radius">提交</button>
-							</p>
-						</div>
-					</div>
-				</form>
-
-
-
-
-
-
-
-
-
-
-
-
-			</div>
-
-
-
-		</div>
-
-
-
-
-
-		<div class="am-popup am-popup-inner" id="my-popups">
-
-			<div class="am-popup-hd">
-				<h4 class="am-popup-title">修改栏目名称</h4>
-				<span data-am-modal-close class="am-close">&times;</span>
-			</div>
-
-			<div class="am-popup-bd">
-
-
-				<form class="am-form tjlanmu">
-
-
-					<div class="am-form-group">
-						<div class="zuo">栏目名称：</div>
-						<div class="you">
-							<input type="email" class="am-input-sm" id="doc-ipt-email-1"
-								placeholder="请输入标题">
-						</div>
-					</div>
-					<div class="am-form-group">
-						<div class="zuo">栏目关键词：</div>
-						<div class="you">
-							<input type="password" class="am-input-sm" id="doc-ipt-pwd-1"
-								placeholder="请输入关键词">
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">栏目描述：</div>
-						<div class="you">
-							<textarea class="" rows="2" id="doc-ta-1"></textarea>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">栏目图片：</div>
-						<div class="you" style="height: 45px;">
-							<input type="file" id="doc-ipt-file-1">
-							<p class="am-form-help">请选择要上传的文件...</p>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">简介：</div>
-						<div class="you">
-							<textarea class="" rows="2" id="doc-ta-1"></textarea>
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="zuo">状态：</div>
-						<div class="you" style="margin-top: 3px;">
-							<label class="am-checkbox-inline"> <input type="checkbox"
-								value="option1"> 显示
-							</label> <label class="am-checkbox-inline"> <input
-								type="checkbox" value="option2"> 隐藏
-							</label>
-
-						</div>
-					</div>
-					<div class="am-form-group am-cf">
-						<div class="you">
-							<p>
-								<button type="submit" class="am-btn am-btn-success am-radius">提交</button>
-							</p>
-						</div>
-					</div>
-				</form>
-
-
-
-
-
-
-
-
-
-
-
-
-			</div>
-
-
-
-		</div>
-
-
-
-
-
-
-		<div class="admin-biaogelist">
-
-			<div class="listbiaoti am-cf">
-				<ul class="am-icon-users">会员管理</ul>
-
-				<dl class="am-icon-home" style="float: right;">当前位置： 首页> 
-					<a href="#">会员列表</a>
-				</dl>
-
-				<dl>
-					<button type="button"
-						class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus">
-						手动添加会员</button>
-				</dl>
-				<!--这里打开的是新页面-->
-			</div>
-
-			<form class="am-form am-g">
-				<table width="100%"
-					class="am-table am-table-bordered am-table-radius am-table-striped ">
-					<thead>
-						<tr class="am-success">
-							<th class="table-check"><input type="checkbox" /></th>
-
-							<th class="table-id">ID</th>
-							<th class="table-title">会员名称</th>
-							<th class="table-type">会员状态</th>
-							<th class="table-author am-hide-sm-only">邮箱</th>
-							<th class="table-author am-hide-sm-only">注册日期</th>
-							<th class="table-date am-hide-sm-only">电话号码</th>
-							<th width="130px" class="table-set">操作</th>
-						</tr>
-					</thead>
-					
-					<tbody class="userinfolist">	
-						<!-- ajax动态添加用户信息 -->
-					</tbody>
-				</table>
-
-				<div class="am-btn-group am-btn-group-xs">
-
-					<button type="button" class="am-btn am-btn-default">
-						<span class="am-icon-plus"></span> 新增
-					</button>
-					<button type="button" class="am-btn am-btn-default">
-						<span class="am-icon-trash-o"></span> 删除
-					</button>
-					<button type="button" class="am-btn am-btn-default">
-						<span class="am-icon-save"></span> 保存
-					</button>
-
-				</div>
-
-				<ul class="am-pagination am-fr">
-					<li class="am-disabled"><a href="#">«</a></li>
-					<li class="am-active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">»</a></li>
-				</ul>
-
-
-
-
-				<hr />
-				<p>注：.....</p>
-			</form>
-		</div>
-
-	</div>
-
-	<!--[if lt IE 9]>
+    <div class=" admin-content">
+        <div class="am-popup am-popup-inner" id="my-popup">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">添加商品一级分类</h4>
+                <span data-am-modal-close class="am-close">&times;</span>
+            </div>
+            <div class="am-popup-bd">
+                <form class="am-form tjlanmu">
+                    <div class="am-form-group">
+                        <div class="zuo">栏目名称：</div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm" id="doc-ipt-email-1"
+                                placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">栏目关键词：</div>
+                        <div class="you">
+                            <input type="password" class="am-input-sm" id="doc-ipt-pwd-1"
+                                placeholder="请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" id="doc-ipt-file-1">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">简介：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">状态：</div>
+                        <div class="you" style="margin-top: 3px;">
+                            <label class="am-checkbox-inline"> <input type="checkbox"
+                                value="option1"> 显示
+                            </label> <label class="am-checkbox-inline"> <input
+                                type="checkbox" value="option2"> 隐藏
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="am-popup am-popup-inner" id="my-popups">
+            <div class="am-popup-hd">
+                <h4 class="am-popup-title">修改栏目名称</h4>
+                <span data-am-modal-close class="am-close">&times;</span>
+            </div>
+            <div class="am-popup-bd">
+                <form class="am-form tjlanmu">
+                    <div class="am-form-group">
+                        <div class="zuo">栏目名称：</div>
+                        <div class="you">
+                            <input type="email" class="am-input-sm" id="doc-ipt-email-1"
+                                placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="zuo">栏目关键词：</div>
+                        <div class="you">
+                            <input type="password" class="am-input-sm" id="doc-ipt-pwd-1"
+                                placeholder="请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">栏目图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" id="doc-ipt-file-1">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">简介：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">状态：</div>
+                        <div class="you" style="margin-top: 3px;">
+                            <label class="am-checkbox-inline"> <input type="checkbox"
+                                value="option1"> 显示
+                            </label> <label class="am-checkbox-inline"> <input
+                                type="checkbox" value="option2"> 隐藏
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="admin-biaogelist">
+
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-users">会员管理</ul>
+
+                <dl class="am-icon-home" style="float: right;">当前位置： 首页> 
+                    <a href="#">会员列表</a>
+                </dl>
+
+                <dl>
+                    <button type="button"
+                        class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus">
+                        手动添加会员</button>
+                </dl>
+                <!--这里打开的是新页面-->
+            </div>
+
+            <form class="am-form am-g">
+                <table id="userinfoList" width="100%" class="am-table am-table-bordered am-table-radius am-table-striped ">
+                    <thead>
+                        <tr class="am-success">
+                            <th class="table-check"><input type="checkbox" /></th>
+
+                            <th class="table-id">ID</th>
+                            <th class="table-title">会员名称</th>
+                            <th class="table-type">会员状态</th>
+                            <th class="table-author am-hide-sm-only">邮箱</th>
+                            <th class="table-author am-hide-sm-only">注册日期</th>
+                            <th class="table-date am-hide-sm-only">电话号码</th>
+                            <th width="130px" class="table-set">操作</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody class="userinfolist">    
+                        <tr v-for="userinfo in userinfoList">
+                            <td><input type="checkbox"/></td>
+                            <td>{{userinfo.id}}</td>
+                            <td><a href="#">{{userinfo.username}}</a></td><!--用户名-->
+                            <td v-if="userinfo.status==1">正常</td><!--状态-->
+                            <td v-else>锁定</td><!--状态-->
+                            <td>{{userinfo.email}}</td><!--邮箱-->
+                            <td>{{userinfo.regTime}}</td><!--注册时间-->
+                            <td>{{userinfo.phone}}</td><!--手机-->
+                            <td>
+                                <div class="am-btn-toolbar">
+                                    <div class="am-btn-group am-btn-group-xs">
+                                        <button
+                                            class="am-btn am-btn-default am-btn-xs am-text-success am-round">
+                                            <span class="am-icon-search" title="查看会员详情"></span>
+                                        </button>
+                                        <button
+                                            class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
+                                            data-am-modal="{target: '#my-popups'}" title="修改会员">
+                                            <span class="am-icon-pencil-square-o"></span>
+                                        </button>
+                                        <button
+                                            class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
+                                            title="删除会员">
+                                            <span class="am-icon-trash-o"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                    </tbody>
+                </table>
+                <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" class="am-btn am-btn-default">
+                        <span class="am-icon-plus"></span> 新增
+                    </button>
+                    <button type="button" class="am-btn am-btn-default">
+                        <span class="am-icon-trash-o"></span> 删除
+                    </button>
+                    <button type="button" class="am-btn am-btn-default">
+                        <span class="am-icon-save"></span> 保存
+                    </button>
+                </div>
+                <ul class="am-pagination am-fr">
+                    <li class="am-disabled"><a href="#">«</a></li>
+                    <li class="am-active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
+                <hr />
+                <p>注：.....</p>
+            </form>
+        </div>
+    </div>
+<!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/polyfill/rem.min.js"></script>
@@ -277,82 +248,44 @@
 <script src="assets/js/amazeui.legacy.js"></script>
 <![endif]-->
 
-	<!--[if (gte IE 9)|!(IE)]><!-->
-	<script src="assets/js/amazeui.min.js"></script>
-	<!--<![endif]-->
-<!-- 获取用户信息列表 -->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+<!-- 请求用户信息数据 -->
 <script type="text/javascript">
-/**
- *  js，用于页面发送ajax请求
- */
-getData();
-function getData() {
-    $.ajax({
-        url : "/api/v1/get/UserInfo/all",
-        type : "get",
-        dataType : "json",
-        data:{},
-        success : function(data) {
-            /* 执行成功后，弹出第一条数据的标题 */
-            alert(data[0].username);
-            var item;
-            $.each(data,function(i,result){
-            item = " <tr>"+
-            "<td><input type='checkbox'/></td>"+
-            "<td>"+result['id']+"</td>"+
-            "<td><a href='#'>"+result['username']+"</td>"+
-            "<td>"+result['status']+"</td>"+
-            "<td>"+result['email']+"</td>"+
-            "<td>"+result['regTime']+"</td>"+
-            "<td>"+result['phone']+"</td>"+
-            "<td><div class='am-btn-toolbar'><div class='am-btn-group am-btn-group-xs'>"+
-            "<button class='am-btn am-btn-default am-btn-xs am-text-success am-round'> <span class='am-icon-search' title='查看会员详情'></span></button>"+
-           "</div></div></td>"
-            "</tr>";
-            $('.userinfolist').append(item);
-            }); 
-            
-        }
-    });
-}
-/*
- *
- //原本表格样式请勿删除**********************************************
-<tr>
-<td><input type="checkbox" /></td>
-
-<td>15</td>
-<td><a href="#">Business management</a></td>
-<td>default</td>
-<td class="am-hide-sm-only"><i
-    class="am-icon-close am-text-primary"></i></td>
-<td class="am-hide-sm-only">访问</td>
-<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-<td>
-
-    <div class="am-btn-toolbar">
-        <div class="am-btn-group am-btn-group-xs">
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-success am-round">
-                <span class="am-icon-search" title="查看会员详情"></span>
-            </button>
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
-                data-am-modal="{target: '#my-popups'}" title="修改会员">
-                <span class="am-icon-pencil-square-o"></span>
-            </button>
-            <button
-                class="am-btn am-btn-default am-btn-xs am-text-danger am-round"
-                title="删除会员">
-                <span class="am-icon-trash-o"></span>
-            </button>
-        </div>
-    </div>
-
-</td>
-</tr>
-原本表格样式请勿删除**********************************************
- */
+     var userinfoList=new Vue({
+          el:'#userinfoList',
+          data:{   
+              allchecked:false, //默认不全选
+              check:[],
+              userinfoList:[]  
+             }, 
+              created:function(){   
+                var userinfo=this;
+                     $.ajax({
+                        url:"/api/v1/get/user_info/all", //接口地址 获取所有商品
+                        type:"get",  //请求类型
+                        dataType:"json", //数据类型
+                        success:function(data){   //请求成功  
+                            console.log("接口数据请求成功");                        
+                            userinfo.userinfoList=data;    
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {  //请求失败
+                            console.log("错误：接口请求失败了。");
+                            console.log("状态码："+XMLHttpRequest.status);
+                            console.log("准备状态："+XMLHttpRequest.readyState);
+                            console.log("文本状态："+textStatus);
+                        }
+                          
+                      }); //end ajax 
+               },//end function
+            watch:{
+                allchecked:function( nal) {     //全选 和取消全选
+                        this.check =nal                     
+                }
+            }  //end watch
+         
+     }) //end Vue
 </script>
 
 
