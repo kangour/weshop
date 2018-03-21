@@ -84,10 +84,13 @@ public class ProductApi {
 	 * @return
 	 */
 	@RequestMapping(value = "/api/v1/get/product/all", method = RequestMethod.GET)
-	public Product[] GetAllProduct() {
-		PageHelper.startPage(1, 1);
+	public Product[] GetAllProduct(
+			@RequestParam(value = "page_now", required = false, defaultValue = "1") Integer page_now,
+			@RequestParam(value = "page_size", required = false, defaultValue = "20") Integer page_size) {
+		PageHelper.startPage(page_now, page_size);
 		return prod.selectAll();
 	}
+
 	/***
 	 * 通过id获取信息产品详细信息（包括图片地址和分类文字）
 	 * 
@@ -111,7 +114,6 @@ public class ProductApi {
 
 		return prod.selectAllDetail();
 	}
-
 
 	/***
 	 * 根据id修改信息
