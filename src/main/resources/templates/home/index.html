@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -94,7 +94,7 @@
                                 <li class="qc"><a href="#">时尚精品男装</a></li>
                                 <li class="qc"><a href="#">时尚精品女装</a></li>
                                 <li class="qc last"><a href="#">特价优惠</a></li>
-                                <li class="qc last"><a href="#">卖家秀</a></li>
+                                <li class="qc last"><a href="#">买家秀</a></li>
 							</ul>
 					</div>					
 		        				
@@ -874,14 +874,14 @@
 							<div class="am-u-sm-7 am-u-md-4 text-two"  >
 								<div class="outer-con ">
 									<div class="title ">
-										<a v-bind:href="['product/introduction.html?id='+product.id]">{{product.title}}</a>
+										<a v-bind:href="['product/introduction?id='+product.id]">{{product.title}}</a>
 									</div>									
 									<div class="sub-title ">
 										价格：{{product.price}}￥
 									</div>
 									<!-- <i class="am-icon-shopping-basket am-icon-md  seprate"></i> -->
 								</div>
-								<a  v-bind:href="['product/introduction.html?id='+product.id]"><img v-bind:src="product.mainImage" /></a>
+								<a  v-bind:href="['product/introduction?id='+product.id]"><img v-bind:src="product.image" /></a>
 							</div>
 							</div>	
 					</div>
@@ -1325,7 +1325,7 @@
      	    			dataType:"json", //数据类型
      	    			success:function(data){   //请求成功    	    				
      	    				product.productList=data; 
-     	    			/* alert("商品数量"+data.length); */
+     	    			 //alert("商品数量"+data.length);
      	    			},
      	    			error : function(XMLHttpRequest, textStatus, errorThrown) {  //请求失败
      	                    console.log("错误：接口请求失败了。");

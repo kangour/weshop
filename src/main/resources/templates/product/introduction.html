@@ -93,22 +93,22 @@
 							</script>
 
 							<div class="tb-booth tb-pic tb-s310">
-								<a :href="'/'+introduction.mainImage"><img :src="'/'+introduction.mainImage" alt="细节展示放大镜特效" :rel="'/'+introduction.mainImage" class="jqzoom" /></a>
+								<a :href="'/'+introduction.image"><img src="'/'+introduction.image" alt="图片路径不对" :rel="|'/'+${product.image}|" class="jqzoom" /></a>
 							</div>
 							<ul class="tb-thumb" id="thumblist">
 								<li class="tb-selected">
 									<div class="tb-pic tb-s40">
-										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
+										<a href="#"><img  th:src="@{../images/browse1.jpg }" mid="@{../images/browse1.jpg }"  big="@{../images/browse1.jpg }"></a>
 									</div>
 								</li>
 								<li>
 									<div class="tb-pic tb-s40">
-										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
+										<a href="#"><img th:src="@{../images/browse1.jpg }" mid="@{../images/browse1.jpg }" :big="@{../images/browse1.jpg }"></a>
 									</div>
 								</li>
 								<li>
 									<div class="tb-pic tb-s40">
-										<a href="#"><img v-bind:src="'/'+introduction.mainImage" :mid="'/'+introduction.mainImage" :big="'/'+introduction.mainImage"></a>
+										<a href="#"><img th:src="@{../images/browse1.jpg }" mid="@{../images/browse1.jpg }" big="@{../images/browse1.jpg }"></a>
 									</div>
 								</li>
 							</ul>
@@ -122,8 +122,8 @@
 						<!--规格属性-->
 						<!--名称-->
 						<div class="tb-detail-hd">
-							<h1>	
-				{{introduction.title}}
+							<h1 th:text="${product.title}">	
+				
 	          </h1>
 						</div>
 						<div class="tb-detail-list">
@@ -131,11 +131,11 @@
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">{{introduction.price}}</b>  </dd>                                 
+									<dd><em>¥</em><b class="sys_item_price"><span th:text="${product.price}"></span></b>  </dd>                                 
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
-									<dd><em>¥</em><b class="sys_item_mktprice">{{introduction.price}}</b></dd>									
+									<dd><em>¥</em><b class="sys_item_mktprice"><span th:text="${product.price}"></span></b></dd>									
 								</li>
 								<div class="clear"></div>
 							</div>
@@ -171,7 +171,7 @@
 									<div class="tm-indcon"><span class="tm-label">月销量</span><span class="tm-count">1015</span></div>
 								</li>
 								<li class="tm-ind-item tm-ind-sumCount canClick">
-									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count">{{introduction.salesNum}}</span></div>
+									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count" th:text="${product.salesNum}"></span></div>
 								</li>
 								<li class="tm-ind-item tm-ind-reviewCount canClick tm-line3">
 									<div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">640</span></div>
@@ -220,7 +220,7 @@
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
 															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
-															<span id="Stock" class="tb-hidden">库存<span class="stock">{{introduction.stock}}</span>件</span>
+															<span id="Stock" class="tb-hidden">库存<span class="stock" th:text="${product.stock}"></span>件</span>
 														</dd>
 
 													</div>
@@ -1291,19 +1291,21 @@
                  
                  <!-- 请求数据 -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
  var productList=new Vue({
 	  el:'#introduction',    	 
 	  data:{  
-		  introduction:{}  
+		  introduction:{} , 
+          id:1
 		 }, 
 		  created:function(){   
 	    	//var product=this;    	    	 
 	    		 $.ajax({
-	    		    url:"/api/v1/get/product/id/detail?id=37", //接口地址 获取所商品详情
+	    		    url:"/api/v1/get/product/id/detail", //接口地址 获取所商品详情
 	    			type:"get",  //请求类型
-	    			dataType:"json", //数据类型	    			
+	    			dataType:"json", //数据类型	
+	    			data:{id:productList.id},
 	    			success:function(data){   //请求成功    	    				
 	    				productList.introduction=data; 	    			
 	    			},
@@ -1319,7 +1321,7 @@
 	 }//end function
 	
 }) //end Vue 
-</script>
+</script> -->
                  
                  
 <!--  <script type="text/javascript"> 
