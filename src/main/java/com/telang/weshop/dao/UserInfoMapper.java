@@ -1,6 +1,8 @@
 package com.telang.weshop.dao;
 
 
+import org.apache.ibatis.annotations.Param;
+
 import com.telang.weshop.entity.UserInfo;
 
 public interface UserInfoMapper {
@@ -16,8 +18,13 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+    
     //获取用户列表
     UserInfo[] selectAll();
+    
     //获取指定用户名的用户信息
     UserInfo selectByUsername(String username);
+    
+    //用户登录接口
+    int login(@Param("username") String username , @Param("password")String password);
 }

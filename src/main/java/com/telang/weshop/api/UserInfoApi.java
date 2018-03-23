@@ -35,11 +35,27 @@ public class UserInfoApi {
     /***
      * 按用户名获取用户信息
      * 
-     * @return
+     * @return UserInfo
      */
     @RequestMapping(value = "/api/v1/get/user_info/username", method = RequestMethod.GET)
-	public   UserInfo selectByUsername(String username) {
+    public UserInfo selectByUsername(String username) {
         return use.selectByUsername(username);
+    }
+    /***
+     * 用户登录接口
+     * 
+     * @return INT
+     */
+    @RequestMapping(value = "/api/v1/get/user_info/login", method = RequestMethod.GET)
+    public int login(
+            @RequestParam(value = "username", required = true) String username,
+            @RequestParam(value = "password", required = true) String password) {
+        try {
+            return use.login(username,password);//用户成功登录
+        } catch (Exception e) {
+            return 0; //登录失败
+        }
+        
     }
 
     /***

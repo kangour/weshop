@@ -1,25 +1,18 @@
 package com.telang.weshop.control;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.telang.weshop.entity.UserInfo;
-import com.telang.weshop.service.LoginService;
 
 @Controller
 public class HomeControl {
 	
-	 @Autowired
- 	LoginService service;
+//	 @Autowired
+// 	LoginService service;
     /***
      * 首页
      * @param model
@@ -40,26 +33,33 @@ public class HomeControl {
     public String userlogin(Model model) {
         return "home/login.html";
     }
-    
-    @RequestMapping(value="/Login",method= RequestMethod.POST)
-    public String login(@RequestParam("username")  String username,@RequestParam("password") String password,Model model,HttpSession session){
-    	
-    	 Map<String, Object> result=service.doLogin(username, password);
-    	
-    	 if (result.get("status").equals("success")) {   
-    		 UserInfo user=(UserInfo) result.get("result");
-    		 System.out.println(user.getUsername());
-    		
-    		 session.setAttribute("user", user);
-    		 return "redirect:/";
-		} else {
-              
-			model.addAttribute("result",result.get("result") );
-			return "home/login.html";
-		}
-    	
-    	
-    }
+//    /**
+//     * 学应的 登录
+//     * @param username
+//     * @param password
+//     * @param model
+//     * @param session
+//     * @return
+//     */
+//    @RequestMapping(value="/Login",method= RequestMethod.POST)
+//    public String login(@RequestParam("username")  String username,@RequestParam("password") String password,Model model,HttpSession session){
+//    	
+//    	 Map<String, Object> result=service.doLogin(username, password);
+//    	
+//    	 if (result.get("status").equals("success")) {   
+//    		 UserInfo user=(UserInfo) result.get("result");
+//    		 System.out.println(user.getUsername());
+//    		
+//    		 session.setAttribute("user", user);
+//    		 return "redirect:/";
+//		} else {
+//              
+//			model.addAttribute("result",result.get("result") );
+//			return "home/login.html";
+//		}
+//    	
+//    	
+//    }
     
     /***
      * 用户注销
