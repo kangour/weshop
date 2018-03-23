@@ -28,9 +28,12 @@
 			<div class="am-container header">
 				<ul class="message-l">
 					<div class="topMessage">
-						<div class="menu-hd">
-							<a href="../login.html" target="_top" class="h">亲，请登录</a>
-							<a href="../register.html" target="_top">免费注册</a>
+						<div class="menu-hd" th:if="${session.user}==null">
+							<a href="#" target="_top" class="h">亲，请登录</a>
+							<a href="#" target="_top">免费注册</a>
+						</div>
+						<div class="menu-hd" th:if="${session.user}!=null">
+							<span th:text="'欢迎你：'+${session.user.getUsername()}"></span>
 						</div>
 					</div>
 				</ul>

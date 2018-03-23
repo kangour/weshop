@@ -38,7 +38,7 @@ public class UserInfoApi {
      * @return
      */
     @RequestMapping(value = "/api/v1/get/user_info/username", method = RequestMethod.GET)
-    UserInfo selectByUsername(String username) {
+	public   UserInfo selectByUsername(String username) {
         return use.selectByUsername(username);
     }
 

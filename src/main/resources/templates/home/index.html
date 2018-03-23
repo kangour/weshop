@@ -14,11 +14,11 @@
 		<link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
 
 		<link href="../css/hmstyle.css" rel="stylesheet" type="text/css"/>
+		
 		<link href="../css/skin.css" rel="stylesheet" type="text/css" />
 		
 		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 		<!--  引入 Vue.js -->
 <script src="/admin/assets/js/vue.min.js"></script>
 
@@ -30,9 +30,12 @@
 			<div class="am-container header">
 				<ul class="message-l">
 					<div class="topMessage">
-						<div class="menu-hd">
+						<div class="menu-hd" th:if="${session.user}==null">
 							<a href="#" target="_top" class="h">亲，请登录</a>
 							<a href="#" target="_top">免费注册</a>
+						</div>
+						<div class="menu-hd" th:if="${session.user}!=null">
+							<span th:text="'欢迎你：'+${session.user.getUsername()}"></span>
 						</div>
 					</div>
 				</ul>
@@ -686,8 +689,6 @@
 					<div class="marqueen">
 						<span class="marqueen-title">商城头条</span>
 						<div class="demo">
-
-							<ul>
 								<li class="title-first"><a target="_blank" href="#">
 									<img src="../images/TJ2.jpg"></img>
 									<span>[特惠]</span>商城爆品1分秒								
@@ -702,25 +703,26 @@
 							<div class="m-baseinfo">
 								<a href="../person/index.html">
 									<img src="../images/getAvatar.do.jpg">
-								</a>
-								<em>
-									Hi,<span class="s-name">小叮当</span>
-									<a href="#"><p>点击更多优惠活动</p></a>									
+								</a>								
+								   <em th:if="${session.user}==null">
+									<span class="s-name">未登录</span>																		
+								 </em>
+								<em th:if="${session.user}!=null">
+								   Hi,你好：<span class="s-name" th:text="${session.user.getUsername()}"></span>																	
 								</em>
 							</div>
-							<div class="member-logout">
-								<a class="am-btn-warning btn" href="login.html">登录</a>
+							<div class="clear"> </div>	
+							<div class="member-logout" th:if="${session.user}==null">
+								<a class="am-btn-warning btn" href="/userlogin">登录</a>
 								<a class="am-btn-warning btn" href="register.html">注册</a>
 							</div>
-							<div class="member-login">
-								<a href="#"><strong>0</strong>待收货</a>
-								<a href="#"><strong>0</strong>待发货</a>
-								<a href="#"><strong>0</strong>待付款</a>
-								<a href="#"><strong>0</strong>待评价</a>
-							</div>
+							<div class="member-logout" th:if="${session.user}!=null">
+								<a class="am-btn-warning btn" href="/logout">注销</a>
+							</div>							
+							
 							<div class="clear"></div>	
-						</div>																	    
-							    
+						</div>	
+						     <ul>							     											    
 								<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
 								<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
 								<li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券 买1送1！</a></li>
